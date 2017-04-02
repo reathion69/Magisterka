@@ -1,0 +1,289 @@
+﻿@model IEnumerable<Magisterka.Models.PlanViewModel>
+@{
+    ViewBag.Title = "Zobacz plan";
+}
+
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Get))
+{
+    <p>
+        Grupa: &nbsp;    @Html.DropDownList("planGrupa", "---") &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+        Prowadzacy:  &nbsp;    @Html.DropDownList("planProwadzacy", "---") &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <input type="submit" value="Wyszukaj" />
+    </p>
+}
+
+
+<h3>Poniedziałek</h3>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Godzina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Przedmiot)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Grupa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prowadzacy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sala)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.Dzien == 1)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ZakresGodzin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Przedmiot)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grupa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prowadzacy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sala)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id=item.SiatkaId }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.SiatkaId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.SiatkaId })*@
+                </td>
+            </tr>
+        }
+    }
+
+</table>
+<hr />
+<h3>Wtorek</h3>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Godzina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Przedmiot)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Grupa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prowadzacy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sala)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.Dzien == 2)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ZakresGodzin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Przedmiot)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grupa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prowadzacy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sala)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id=item.SiatkaId }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.SiatkaId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.SiatkaId })*@
+                </td>
+            </tr>
+        }
+    }
+
+</table>
+<hr />
+
+<h3>Środa</h3>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Godzina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Przedmiot)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Grupa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prowadzacy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sala)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.Dzien == 3)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ZakresGodzin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Przedmiot)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grupa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prowadzacy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sala)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id=item.SiatkaId }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.SiatkaId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.SiatkaId })*@
+                </td>
+            </tr>
+        }
+    }
+
+</table>
+<hr />
+
+<h3>Czwartek</h3>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Godzina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Przedmiot)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Grupa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prowadzacy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sala)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.Dzien == 4)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ZakresGodzin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Przedmiot)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grupa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prowadzacy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sala)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id=item.SiatkaId }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.SiatkaId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.SiatkaId })*@
+                </td>
+            </tr>
+        }
+    }
+
+</table>
+<hr />
+
+<h3>Piątek</h3>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Godzina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Przedmiot)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Grupa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prowadzacy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sala)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.Dzien == 5)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ZakresGodzin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Przedmiot)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grupa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prowadzacy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sala)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id=item.SiatkaId }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.SiatkaId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.SiatkaId })*@
+                </td>
+            </tr>
+        }
+    }
+
+</table>
+<hr />
+<div>
+    @Html.ActionLink("Dodaj dane do BD", "CreateData")
+</div>

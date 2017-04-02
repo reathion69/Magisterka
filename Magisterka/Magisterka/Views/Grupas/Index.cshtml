@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Magisterka.Models.Grupa>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nazwa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skrot)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Liczebnosc)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nazwa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Skrot)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Liczebnosc)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.GrupaId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.GrupaId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.GrupaId })
+        </td>
+    </tr>
+}
+
+</table>

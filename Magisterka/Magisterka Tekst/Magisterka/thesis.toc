@@ -1,0 +1,8 @@
+\contentsline {chapter}{\numberline {1}Wprowadzenie.}{1}
+\contentsline {chapter}{\numberline {2}Problem uk\IeC {\l }adania planu zaj\IeC {\k e}\IeC {\'c}.}{2}
+\contentsline {section}{\numberline {2.1}Ograniczenia planu zaj\IeC {\k e}\IeC {\'c}.}{2}
+\contentsline {section}{\numberline {2.2}Rozmiar problemu.}{4}
+\contentsline {chapter}{\numberline {3}Algorytm wyszukiwania z tabu.}{6}
+\contentsline {chapter}{\numberline {Bibliografia\hspace {-96pt}}}{7}
+\contentsline {chapter}{\numberline {A}Symbole przyj\IeC {\k e}te w pracy}{8}
+\contentsline {chapter}{\numberline {B}Inny, przyk\IeC {\l }adowy dodatek}{9}
