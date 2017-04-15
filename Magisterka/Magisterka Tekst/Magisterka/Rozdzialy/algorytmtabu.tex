@@ -1,5 +1,44 @@
 \chapter{Algorytm wyszukiwania z tabu.}
-
 \section{Algorytmy heurystyczne i metaheurystyczne.}
-\section{Sąsiedztwo.}
+ Optymalizacja rozwiązań wykorzystywana jest w prawie każdym aspekcie życia. Podwyższanie jakości usług, obniżanie kosztów wyrobów czy minimalizacja zużycia surowców to w bardzo popularne zagadnienia. Medycyna, logistyka, ekonomia to tylko niektóre dziedziny, w których pojęcie to znajduje swoje zastosowanie. 
+ Optymalizacja to minimalizacja bądź maksymalizacja pewnej funkcji, zwanej często funkcją oceny, która jednoznacznie określa jakość danego rozwiązania. Znalezienie minimum lub maksimum wymaga więc wyznaczenia funkcji oceny dla każdego możliwego wariantu danego problemu i wyborze tego o najlepszym wyniku. Niestety często rozmiar zadania, dla którego szukamy optymalnego rozwiązania, jest tak duży, że przeszukanie wszystkich możliwości bądź nawet zastosowanie jakiegoś algorytmu znajdującego najlepsze rozwiązanie nie jest możliwe ze względu na czas wykonania. Liczba operacji, które należy wykonać często rośnie wykładniczo w stosunku do rozmiaru problemu. Problem ten stwarza miejsce dla heurystyki.
+ 
+ ,,Terminem heurystyka (z języka greckiego heurisko - znajduję) określa się sposób postępowania oparty na zdobytym doświadczeniu, wykorzystaniu istniejących faktów i reguł, w celu znalezienia odpowiedzi na postawione pytanie."\cite{Algorytmy:Widuch} Algorytmy heurystyczne więc to takie algorytmy, które opierając się na własnym przebiegu i otrzymywanych wynikach, starają się znaleźć jak najlepsze rozwiązanie, jednak nie zawsze musi to być rozwiązanie najlepsze z dostępnych. W zamian za możliwość otrzymania gorszego rozwiązania otrzymujemy szybszy czas działania algorytmu. Algorytmy heurystyczne wykorzystywane są gdy dokładne algorytmy są z przyczyn technicznych zbyt kosztowne lub gdy są nieznane (np. przy problemie przewidywania pogody). Często też używa się ich by nakierować pełen algorytm na rozwiązanie optymalne, co w rezultacie skróci czas wykonania algorytmu.
+ 
+ Algorytmy heurystyczne możemy podzielić ze względu na sposób w jaki generowane są nowe rozwiązania.
+ \begin{itemize}
+ 	\item Algorytmy probabilistyczne - wykorzystują czynnik losowości, często kolejne rozwiązanie wybierane jest losowo z określonej puli. Co może doprowadzić do różnych wyników końcowych otrzymanych z kolejnych uruchomień algorytmu.
+ 	\item Algorytmy deterministyczne - nie zawierają czynnika losowego. Otrzymywane rozwiązanie zawsze powinno być takie same, przy każdym uruchomieniu algorytmu o takich samych parametrach. 	
+ \end{itemize}
+
+W niektórych algorytmach wykorzystane są dwie heurystyki, nadrzędna i podrzędna. Pierwsza z nich steruje i wspiera działanie drugiej. Takie zjawiska nazywane są przez niektórych metaheurystykami. \cite{Algorytmy:Widuch} Inna definicja metaheurystyki to ,,procesy iteracje działające zgodnie z klasyczną metodą heurystyczną, wspomagane inteligentnie przez różne koncepcje eksplorowania i eksploatowania przestrzeni rozwiązań z użyciem technik uczących. Wspomaganie to ustrukturalnia informacje w celu sprawnego znalezienia rozwiązań bliskich optymalnemu." \cite{Metaheurystyki:Osman} Jednak po raz pierwszy termin ten został użyty przez Freda Glovera w 1986 roku jako określenie algorytmów, które nie rozwiązują bezpośrednio żadnego problemu, lecz określają w jaki sposób budować algorytmy podrzędne w celu uzyskania rozwiązania. \cite{Future:Glover}
+
 \section{Tabu.}
+
+Przykładem algorytmu metaheurystycznego jest algorytm wyszukiwania z tabu. Algorytm ten swoje początki ma w 1977 roku kiedy to Fred Glover przedstawił pracę na temat wykorzystania pamięci krótkotrwałej i długotrwałej w przeszukiwaniu lokalnym. Pamięć krótkotrwała służyła do zapamiętywania ostatnich ruchów algorytmu i była nadpisywana przez kolejne jego iteracje, natomiast pamięć długotrwała miała na celu zapamiętać najbardziej atrakcyjne elementy przestrzeni poszukiwań. To właśnie w oparciu o tą zasadę, Glover zaproponował w 1986 roku, algorytm \textit{Tabu Search}. Jest on uznawany za autora algorytmu mimo tego, że w tym samym roku Michael Hansen opublikował pracę opisującą bardzo podobną heurystykę. Na przestrzeni lat algorytm został ulepszony i aktualnie dostępnych jest wiele jego różnych modyfikacji (np. \textit{Probabilistic Tabu Search} lub \textit{Reactive Tabu Search}).
+
+\subsection{Zasada działania algorytmu.}
+
+Wyszukiwanie z tabu to metaheurystyka służąca do rozwiązywania problemów optymalizacji. Algorytm ten opiera się na iteracyjnym przeszukiwaniu przestrzeni rozwiązań, z użyciem tzw. sąsiedztwa oraz na zapamiętywaniu ostatnio wykonanych ruchów w celu uniknięcia powtarzalności. Wywodzi się on bezpośrednio z metody przeszukiwania lokalnego, jednak jest od niej zdecydowanie skuteczniejszy dzięki mechanizmowi wychodzenia z minimów lokalnych. Mechanizm ten pozwala na pogorszenie aktualnego wyniku w celu uzyskania wyniku jeszcze lepszego. Możliwe jest to dzięki przestrzeni tabu czyli listy ruchów, które algorytm już wykonał, co zabezpiecza tę metodę przed powrotem w obszary niedawno przeszukane. Obecność ruchów na liście tabu jest tymczasowa, co w konsekwencji blokuje dany ruch przez określoną ilość iteracji. Możliwe jest złamanie tej zasady, ale tylko wtedy gdy ruch spełnia tzw. kryterium aspiracji. Warunkiem końcowym tej metody najczęściej jest określona liczba iteracji algorytmu lub osiągnięcie satysfakcjonującego rozwiązania. Możliwe jest również monitorowanie aktualnego wyniku i, jeżeli nie ulega on poprawie przez określoną ilość iteracji, zatrzymanie algorytmu.
+
+\subsection{Sąsiedztwo.}
+
+Najważniejszym czynnikiem od którego zależy sukces końcowy metody jest poprawne zdefiniowanie sąsiedztwa, które będzie przeszukiwane w danej iteracji. Do sąsiedztwa powinny należeć elementy różniące się w sposób nieznaczny, jednak wystarczający, by umożliwić algorytmowi przejście w każdy obszar przestrzeni rozwiązań. Sposób w jaki definiowane jest sąsiedztwo zależy bezpośrednio od danego problemu i typu jego rozwiązań. Rozwiązaniami mogą być np. wektory binarne, wektory liczb rzeczywistych czy jakiekolwiek permutacje zbiorów. Jeżeli na przykład rozwiązaniem będzie permutacja jakiegoś zbioru \textit{n} elementowego to sąsiedztwem możemy określić jedno z trzech typów przejść między permutacjami:
+
+\begin{itemize}
+	\item wstaw(x, y) - wstawienie elementu y na pozycję x. (Permutacje z powtórzeniami)
+	\item zamień(x, y) -zamienienie elementów na pozycjach x i y.
+	\item odwróć(x, y) - odwrócenie kolejności występowania elementów pomiędzy indeksami x i y.
+\end{itemize}
+
+Sąsiedztwem danego ciągu będzie więc każdy inny ciąg poddany jednej, wybranej na początku, metodzie zamiany dla wszystkich możliwych parametrów (x, y). Dzięki tak zdefiniowanemu sąsiedztwu możliwe jest łatwe zidentyfikowanie przejścia poprzez parę indeksów (x, y). To właśnie ta para będzie zapisana na liście Tabu, a ruch ten zablokowany przez następne iteracje.
+
+Może się jednak okazać, że generowane sąsiedztwa są zbyt duże by każdorazowo przeszukiwać je w całości. Stosowane jest wtedy zawężanie sąsiedztwa za pomocą określonej metody. Jedną z nich jest metoda losowego doboru sąsiedztwa. Wprowadza to element probabilistyczny do algorytmu co zmniejsza prawdopodobieństwo powstania niepożądanych cykli, jednak przy takim podejściu możemy pominąć obszary przestrzeni rozwiązań, w których znajduje się to optymalne.
+
+\subsection{Kryteria aspiracji.}
+
+Może się zdarzyć, że zabranianie pewnych ruchów doprowadzi do przestojów lub całkowicie zablokuje kolejny ruch (sytuacja, gdy wszystkie dostępne przejścia są na liście tabu). Jest to możliwe ponieważ algorytm przechowuje tylko transformacje, a więc atrybuty pewnych rozwiązań a nie całe rozwiązania. Kryterium aspiracji umożliwia wyjście z takiej sytuacji.
+Spełnienie takiego kryterium  pozwala na złamanie zakazu tabu, czyli wykonanie ruchu, który znajduje się na liście ostatnio użytych. Najpopularniejszym i najprostszym kryterium aspiracji jest uzyskanie najlepszego znanego wyniku. Musi być ono lepsze od aktualnie najlepszego w celu uniknięcia zapętleń. Jednak większość kryteriów aspiracji jest dużo bardziej skomplikowana i opiera się na wyspecjalizowanych metodach przewidywania możliwości powstania cyklu po wykonaniu określonego ruchu.
+
+\subsection{Dywersyfikacji i intensyfikacja.}
+\subsection{Schemat algorytmu.}

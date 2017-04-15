@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.5)  2 APR 2017 14:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.5)  9 APR 2017 18:03
 entering extended mode
 **thesis.tex
 (thesis.tex
@@ -647,27 +647,49 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 [5]
 Rozdzia\PlPrIeC {\l } 3.
-) (thesis.bbl [6
 
-]) (appendix.tex [7
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6
+
+]
+Overfull \vbox (2.49998pt too high) has occurred while \output is active []
+
+
+[7]
+Overfull \vbox (2.49998pt too high) has occurred while \output is active []
+
+
+[8]) (thesis.bbl
+Underfull \vbox (badness 3601) has occurred while \output is active []
+
+
+Overfull \vbox (2.49998pt too high) has occurred while \output is active []
+
+
+[9]
+Overfull \vbox (2.49998pt too high) has occurred while \output is active []
+
+
+[10]) (appendix.tex [11
 
 ]
 Dodatek A.
-[8
+[12
 
 ]
 Dodatek B.
-) [9
+) [13
 
 ] (thesis.aux (header.aux)) ) 
 Here is how much of TeX's memory you used:
- 4760 strings out of 493673
- 68504 string characters out of 3141524
+ 4763 strings out of 493673
+ 68559 string characters out of 3141524
  131055 words of memory out of 3000000
- 7974 multiletter control sequences out of 15000+200000
- 15034 words of font info for 46 fonts, out of 3000000 for 9000
+ 7977 multiletter control sequences out of 15000+200000
+ 15538 words of font info for 47 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 36i,11n,40p,719b,270s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,11n,40p,1286b,291s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips
 /pl/plmi.enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/pl/plit.enc}{C:
 /Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/pl/plms.enc}{C:/Program Files (
@@ -681,9 +703,9 @@ ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/pl/plmi8.pfb><C:/Program Files
  2.9/fonts/type1/public/pl/plsl12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/
 type1/public/pl/plsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publi
 c/pl/plti12.pfb>
-Output written on thesis.pdf (16 pages, 205833 bytes).
+Output written on thesis.pdf (20 pages, 221451 bytes).
 PDF statistics:
- 96 PDF objects out of 1000 (max. 8388607)
+ 109 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

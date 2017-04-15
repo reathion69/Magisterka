@@ -1,9 +1,19 @@
 \begin{thebibliography}{1}
 
-\bibitem{inz:Jurczyk2014}
-Monika Jurczyk.
-\newblock {\em Wybrane zagadnienia przetwarzania i analizy obrazów
-  pochodzących z elektronowego mikroskopu transmisyjnego}.
-\newblock Projekt inżynierski, Politechnika Śląska, Gliwice, styczeń 2014.
+\bibitem{Algorytmy:Widuch}
+A.~Debudaj-Grabysz, J.~Widuch, and S.~Deorowicz.
+\newblock {\em Algorytmy i struktury danych. Wybór zaawansowanych metod.}
+\newblock Wydawnictwo Politechniki śląskiej, Gliwice, 2012.
+
+\bibitem{Future:Glover}
+Fred Glover.
+\newblock {\em Future Paths for Integer Programming and Links to Artificial
+  Intelligence}.
+\newblock Oxford: Elsevier, 1986.
+
+\bibitem{Metaheurystyki:Osman}
+I.H. Osman and J.P. Kelly.
+\newblock {\em Meta-heuristics: An Overview}.
+\newblock Kluwer Academic Publishers, 1996.
 
 \end{thebibliography}
