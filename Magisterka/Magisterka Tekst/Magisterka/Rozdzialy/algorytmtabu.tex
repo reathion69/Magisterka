@@ -41,4 +41,18 @@ Może się zdarzyć, że zabranianie pewnych ruchów doprowadzi do przestojów l
 Spełnienie takiego kryterium  pozwala na złamanie zakazu tabu, czyli wykonanie ruchu, który znajduje się na liście ostatnio użytych. Najpopularniejszym i najprostszym kryterium aspiracji jest uzyskanie najlepszego znanego wyniku. Musi być ono lepsze od aktualnie najlepszego w celu uniknięcia zapętleń. Jednak większość kryteriów aspiracji jest dużo bardziej skomplikowana i opiera się na wyspecjalizowanych metodach przewidywania możliwości powstania cyklu po wykonaniu określonego ruchu.
 
 \subsection{Dywersyfikacji i intensyfikacja.}
-\subsection{Schemat algorytmu.}
+
+Ważnym aspektem algorytmu jest pamięć długoterminowa. Służy ona do przechowywania informacji o przeszłych iteracjach i do budowania statystyk. Dzięki tym statystykom możemy modyfikować strategię poszukiwania. Głównym celem takich modyfikacji może być spełnienie jednego z dwóch kryteriów:
+\begin{itemize}
+	\item intensyfikacja - jeżeli według statystyki w danym obszarze znajduje się dużo dobrych rozwiązań, algorytm zagęści obszar poszukiwań. Dzięki temu istnieje szansa na znalezienie jeszcze lepszego wyniku w danym obszarze.
+	\item dywersyfikacja - jest to rozproszenie obszaru poszukiwań. Najczęściej stosowanym rozwiązaniem jest nakładanie kary na ruchy, które powtarzają się w perspektywie dłuższego czasu. Efektem tego jest przeniesienie algorytmu w inne rejony poszukiwań co zmniejsza szanse na pominięcie najlepszych rozwiązań.
+\end{itemize}
+Wykorzystanie intensyfikacji i dywersyfikacji w znaczniej mierze poprawia efektywność algorytmu, dlatego kryteria te są wykorzystywane w większości nowych implementacji algorytmu \textit{Tabu Search}.
+
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth,height=\textheight - 1cm,keepaspectratio]{k}
+\caption{Schemat algorytmu Tabu Search}
+\label{fig: AlgorytmTabu}
+\end{figure}

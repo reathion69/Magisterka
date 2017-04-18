@@ -9,7 +9,6 @@
 \contentsline {subsection}{\numberline {3.2.2}S\IeC {\k a}siedztwo.}{8}
 \contentsline {subsection}{\numberline {3.2.3}Kryteria aspiracji.}{9}
 \contentsline {subsection}{\numberline {3.2.4}Dywersyfikacji i intensyfikacja.}{10}
-\contentsline {subsection}{\numberline {3.2.5}Schemat algorytmu.}{10}
-\contentsline {chapter}{\numberline {Bibliografia\hspace {-96pt}}}{11}
-\contentsline {chapter}{\numberline {A}Symbole przyj\IeC {\k e}te w pracy}{12}
-\contentsline {chapter}{\numberline {B}Inny, przyk\IeC {\l }adowy dodatek}{13}
+\contentsline {chapter}{\numberline {Bibliografia\hspace {-96pt}}}{12}
+\contentsline {chapter}{\numberline {A}Symbole przyj\IeC {\k e}te w pracy}{13}
+\contentsline {chapter}{\numberline {B}Inny, przyk\IeC {\l }adowy dodatek}{14}
