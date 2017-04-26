@@ -1,58 +1,61 @@
-\chapter{Problem układania planu zajęć.}
-\section{Ograniczenia planu zajęć.}
-Problem układania planu zajęć można sprowadzić do przyporządkowania określonym wydarzeniom odpowiednich okien czasowych i zasobów, tak by spełnić początkowe założenia. Dla planu zajęć wydarzeniami będą poszczególne lekcje odbywające się w ciągu jednego tygodnia, dostępnymi oknami czasowymi będą godziny w których mogą odbywać się te zajęcia (np. od poniedziałku do piątku w godzinach między 8:00 a 18:00), natomiast zasobami będzie cała reszta danych przypisana do zajęć: grupy uczniów, prowadzący zajęcia, sala.
-
-Układanie planu zajęć wymaga przestrzegania odpowiednich ograniczeń. Nie można w prosty sposób wypełnić okien czasowych według jakiejś przyjętej kolejności ponieważ najprawdopodobniej pojawią się konflikty i plan zajęć nie będzie możliwy do zrealizowania. By tego uniknąć trzeba zachować tzw. ograniczenia twarde, czyli takie, które kategorycznie muszą zostać spełnione by plan mógł być możliwy do zrealizowania. Istnieją również ograniczenia miękkie, które określają jakość planu końcowego. Ograniczenia te nie muszą zostać spełnione, ale jeżeli jest to możliwe, algorytm układający plan zajęć bierze je pod uwagę.
-
-Przykłady ograniczeń:
+\chapter{Problem układania planu zajęć}
+\section{Sformułowanie problemu}
+Problem układania planu zajęć można sformułować następująco. Dana jest lista określonych wydarzeń, dostepnych okien czasowych i zasobów. Należy przyporządkować wydarzeniom okna czasowe oraz zasoby w taki sposób, by spełnić przyjęte założenia. W formułowanym problemie:
 \begin{itemize}
-	\item Twarde:
-	\begin{itemize}
-		\item Niepodzielność zasobów
-		\item Przypisanie wszystkich zajęć do okien czasowych
-	\end{itemize}
-	\item Miękkie:
-	\begin{itemize}
-		\item Brak okienek dla studentów
-		\item Odpowiednie przerwy między zajęciami
-		\item Jak najmniej dni roboczych dla prowadzących
-		\item Brak bloków zajęć danego typu
-	\end{itemize}
+	\item wydarzeniami są poszczególne lekcje odbywające się w ciągu jednego tygodnia,
+	\item dostępnymi oknami czasowymi są godziny w których mogą odbywać się zajęcia (np. od poniedziałku do piątku w godzinach między 8:00 a 18:00),
+	\item zasoby to dostępne sale lekcyjne, nauczyciele prowadzący zajęcia, grupy uczniów itp.
 \end{itemize}
 
-Niepodzielność zasobów oznacza, że jeden nauczyciel nie może być w dwóch miejscach jednocześnie, więc może prowadzić tylko jedne zajęcia w danym oknie czasowym, w jednej sali nie mogą się odbywać w tym samym czasie różne zajęcia, a dla danej grupy lekcje nie mają prawa się nakładać. Naruszenie tego ograniczenia było by fizycznie nie możliwe. 
-Obowiązek przypisania zajęć do jakichś okien czasowych oznacza, że na planie końcowym muszą się znaleźć wszystkie lekcje przewidziane w siatce zajęć dla danej grupy. Jest to podstawowe założenie bez którego układanie planu traci swój sens.
-Często jednak dla konkretnej siatki zajęć spełnienie już tych warunków jest niemożliwe. Wynika to najczęściej z za małej liczby zasobów (za mało nauczycieli mogących prowadzić jeden przedmiot, za mało sal). Algorytmy szukają wtedy planu z najmniejszą liczbą konfliktów, a pozostałe przypadki uzupełniamy już ręcznie szukając jakichś kompromisów (dołożenie okna czasowego, zatrudnienie dodatkowego nauczyciela lub pomieszczenie dwóch mniejszych grup w jednej sali).
-
-Ograniczenia miękkie to tak naprawdę życzenia użytkowników co do tego jak dany plan ma wyglądać. Wpływają one na końcową ocenę planu zajęć i mogą mieć określone wagi w zależności od ich istotności. Niektóre plany zajęć układane są pod uczniów (mała liczba okienek, zajęcia równomiernie rozłożone, brak bloków zajęć danego typu, odpowiednia przerwa między zajęciami), a niektóre pod prowadzących (zajęcia skumulowane w dwa dni tygodnia by umożliwić prace na innej uczelni). Wszystko zależy od osoby konfigurującej algorytm i definiującej funkcję oceny planu zajęć.
-
-Funkcja oceny planu zajęć najczęściej polega na nakładaniu punktów karnych za złamanie określonych ograniczeń. Każde ograniczenie ma ustawioną własną wartość punktów karnych przy czym ograniczenia twarde powinny mieć dużo większą wagę od ograniczeń miękkich. Im więcej punktów karnych tym plan jest gorszy. To właśnie na podstawie funkcji oceny większość algorytmów wyszukuje optymalny plan zajęć.
+Układanie planu zajęć wymaga spełnienia określonych ograniczeń. Mianowicie nie można wypełnić dostepnych okien czasowych według z góry przyjętej kolejności, ponieważ jest prawdopodobne, że pojawią się konflikty i plan zajęć nie będzie możliwy do zrealizowania. Aby tego uniknąć trzeba spełnić tzw. ograniczenia twarde, czyli takie, które zawsze muszą zostać spełnione, by plan mógł być możliwy do zrealizowania. Istnieją również ograniczenia miękkie, które określają jakość ułożonego planu. Ograniczenia te nie muszą zostać spełnione, ale algorytm układania planu zajęć powinien brać je pod uwagę.
 
 \newpage
-\section {Rozmiar problemu.}
-
-By dobrze zrozumieć potrzebę używania algorytmów heurystycznych przy wyszukiwaniu optymalnego planu zajęć warto zobrazować skalę problemu. W tym celu przedstawiony zostanie przykład planu zajęć dla amerykańskiej szkoły średniego rozmiaru. W tym przykładzie, każde ze zdarzeń ma już przyporządkowane zasoby.
-
+Przykłady ograniczeń:
 \begin{itemize}
-	\item Okna czasowe - 40
-	\item Nauczyciele - 27
-	\item Sale - 30
-	\item Grupy uczniów - 24
-	\item Zdarzenia - 832
-	\item Ograniczenia - 4
+	\item twarde:
+	\begin{itemize}
+		\item zasób nie może być wykorzystany w dwóch miejscach w tym samym czasie (np. dany nauczyciel nie może prowadzić jednocześnie zajęć w dwóch różnych salach),
+		\item nie występują zajęcia, które nie zostały przypisane do okien czasowych w ułożonym planie.
+	\end{itemize}
+	\item miękkie:
+	\begin{itemize}
+		\item brak dłuższych przerw między zajęciami dla uczniów,
+		\item odpowiednie przerwy między zajęciami (np. 15 - lub 20 - minutowe),
+		\item liczba dni roboczych, w których nauczyciele prowadzą zajęcia, powinna być minimalizowana,
+		\item brak bloków zajęć danego typu (np. dana grupa uczniów nie powinna mieć kolejno czterech lekcji matematyki).
+	\end{itemize}
 \end{itemize}
 
-Mamy dostępne 40 okien czasowych, co rozłożone na 5 dni tygodnia daje 8 godzin zajęć dziennie. Jednocześnie odbywać się mogą 24 zajęcia. Liczba ta wynika z ograniczenia niepodzielności zasobów i jest minimalną liczbą z pośród ilości nauczycieli, sal i grup uczniów. Maksymalna liczba zdarzeń, które mogą się odbywać w danym tygodniu wynosi więc:
-\[ 40 * 24 = 960 \]
-\[ 960 > 832 \]
+%Niepodzielność zasobów oznacza, że jeden nauczyciel nie może być w dwóch miejscach jednocześnie, więc może prowadzić tylko jedne zajęcia w danym oknie czasowym, w jednej sali nie mogą się odbywać w tym samym czasie różne zajęcia, a dla danej grupy lekcje nie mają prawa się nakładać. Naruszenie tego ograniczenia było by fizycznie nie możliwe. 
+%Obowiązek przypisania zajęć do jakichś okien czasowych oznacza, że na planie końcowym muszą się znaleźć wszystkie lekcje przewidziane w siatce zajęć dla danej grupy. Jest to podstawowe założenie bez którego układanie planu traci swój sens.
+Często jednak dla wyjściowej siatki zajęć spełnienie wymagań twardych jest niemożliwe. Wynika to najczęściej z za małej liczby zasobów (za mało nauczycieli mogących prowadzić jeden przedmiot lub za mało sal). W algorytmach szuka się wtedy planu z najmniejszą liczbą niespełnionych wymagań, które są usuwane ręcznie przez szukanie określonych kompromisów (np. dołożenie okna czasowego, zatrudnienie dodatkowego nauczyciela, zaplanowanie zajęć tego samego typu dla dwóch mniejszych grup w jednej sali).
 
-Dostępna liczba zdarzeń jest większa od liczby zdarzeń zawartych w siatce zajęć podanego przykładu, więc teoretycznie realizacja tego planu zajęć jest możliwa.
+Ograniczenia miękkie to w istocie życzenia nauczycieli i uczniów co do tego jak  plan powinien wyglądać. Niespełnienie tych ograniczeń wpływa na końcową ocenę planu zajęć, niespelnione ograniczenia mogą mieć określone wagi w zależności od ich istotności. Niektóre plany zajęć układane są ze szczególnym uwzględnieniem uczniów (mała liczba okienek, równomierne rozłożenie zajęć, brak bloków zajęć tego samego typu, odpowiednia przerwa między zajęciami), a niektóre z uwzględnieniem potrzeb prowadzących (zajęcia skumulowane w ciągu dwóch dni tygodnia by umożliwić prace w innej szkole). Założenia te z reguły precyjzuje osoba uruchomiająca wykonanie planu przez odpowiednie skonfigurowanie parametrów algorytmu i zdefiniowanie funkcji oceny wygenerowanego planu.
 
-Na jedną grupę przypada około 35 zajęć, które muszą być rozłożone na 40 okien czasowych. Uwzględniając możliwość pojawienia się okienek w czasie zajęć mamy więc 40 wyrazowy ciąg zdarzeń czyli permutację. Liczba możliwości w jaki sposób można te zajęcia rozłożyć, uwzględniając możliwość okienek, wynosi więc:
+Funkcja oceny planu zajęć z reguły przewiduje nakładanie punktów karnych za niespełnienie określonych ograniczeń. Każde ograniczenie ma ustaloną liczbę punktów karnych, przy czym ograniczenia twarde powinny mieć dużo większą wagę od ograniczeń miękkich. Im więcej punktów karnych ma plan tym jest gorszy. To właśnie na podstawie funkcji oceny planu większość algorytmów starta się ułożyć jak najlepszy plan zajęć.
+
+\section {Rozmiar problemu}
+
+By dobrze zrozumieć potrzebę używania algorytmów heurystycznych przy wyszukiwaniu najlepszego planu zajęć warto przybliżyć pojęcie skali problemu. W tym celu przedstawimy przykład planu zajęć dla amerykańskiej szkoły średniego rozmiaru. W przykładzie tym, każde ze zdarzeń ma przyporządkowane wcześniej zasoby. Przykład ten zawiera:
+
+\begin{itemize}
+	\item okna czasowe - 40,
+	\item nauczyciele - 27,
+	\item sale - 30,
+	\item grupy uczniów - 24,
+	\item zdarzenia - 832,
+	\item ograniczenia - 4.
+\end{itemize}
+
+Dostępnych jest 40 okien czasowych, które rozłożone na pięć dni zajęć w tygodniu dają osiem godzin zajęć dziennie. Jednocześnie odbywać się mogą 24 zajęcia. Liczba ta wynika z niepodzielności zasobów i jest minimalną liczbą spośród liczby nauczycieli, sal i grup uczniów. Maksymalna liczba zdarzeń, które mogą się odbywać w danym tygodniu wynosi więc:
+\[ 40 \cdot 24 = 960, \]
+\[ 960 > 832. \]
+Maksymalna liczba zdarzeń jest większa od liczby zdarzeń zawartych w siatce zajęć podanego przykładu, więc realizacja  planu zajęć zgodnego z powyższą specyfikacją zasobów jest możliwa.
+
+Na jedną grupę uczniów przypada około 35 zdarzeń (832/24), które powinny być rozłożone na 40 okien czasowych. Uwzględniając możliwość wystąpienia okienek w trakcie zajęć, mamy więc 40-wyrazowy ciąg zdarzeń. Liczba możliwośc,i w które można te zajęcia rozłożyć,określa liczba permutacji 40!, która wynosi:
 \[40! = 815915283247897734345611269596115894272000000000\]
+Jest to 48 cyfrowa liczba możliwości rozłożenia zajęć w oknach czasowych dla jednej grupy. Liczbę tę trzeba pomnożyć przez liczbę grup.
 
-Jest to 48 cyfrowa liczba możliwości rozłożenia zajęć w oknach czasowych dla jednej grupy. Liczbę tę trzeba pomnożyć razy ilość grup.
+Przedstawiony przykład ma z góry przyporządkowane zasoby do zdarzeń, więc każde zajęcia mają przyporządkowaną grupę, nauczyciela i salę. Dzięki temu przestrzeń możliwych rozwiązań dla algorytmu ukladania planu zajęć zmniejsza się. Szukany jest tylko termin odbywania się zajęć. Tak przygotowane dane najtrafniej odzwierciedlają realia współczesnych szkół, gdzie najczęściej prowadzący z góry przypisany jest do jakiejś grupy, a konkretne przedmioty mogą się odbywać tylko w przystosowanych do tego celu salach.
 
-Przedstawione dane mają z góry przyporządkowane zasoby do zdarzeń, więc każde zajęcia mają przyporządkowaną grupę, nauczyciela i salę. Dzięki temu obszar poszukiwań algorytmu zmniejsza się. Szukany jest tylko termin odbywania się zajęć. Tak przygotowane dane najtrafniej odzwierciedlają realia współczesnych szkół, gdzie najczęściej prowadzący z góry przypisany jest do jakiejś grupy, a konkretne przedmioty mogą się odbywać tylko w przystosowanych do tego celu salach.
-
-Takie podejście, w którym zasoby z góry są przypisane do zdarzeń, umożliwia szybszą pracę algorytmu. Jednak trzeba pamiętać, że ma to również wpływ na wynik końcowy. Może się zdarzyć przypadek, w który zamiana nauczycieli sprawi, że cały plan znacznie się zmieni i osiągniemy o wiele lepszy rezultat. Jednak z uwagi na złożoność obliczeniową takiego rozwiązania, jak i na dostępną liczbę danych testowych, które mają już przypisane zasoby, zdecydowano się wybrać wariant, w którym algorytm poszukuje tylko okien czasowych dla wszystkich dostępnych zdarzeń.
+Podejście, w którym zasoby z góry są przypisane do zdarzeń, umożliwia szybsze działanie algorytmu. Jednak trzeba pamiętać, że ma to również wpływ na wynik końcowy. Może się zdarzyć przypadek, w który zamiana nauczycieli sprawi, że cały plan znacznie się zmieni i osiągniemy o wiele lepszy rezultat. Jednak z uwagi na złożoność obliczeniową takiego rozwiązania, jak i na dostępną liczbę danych testowych, które mają już przypisane zasoby, zdecydowano się wybrać wariant, w którym algorytm poszukuje tylko okien czasowych dla wszystkich dostępnych zdarzeń.

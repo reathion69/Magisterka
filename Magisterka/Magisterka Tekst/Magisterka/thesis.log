@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.3.8)  18 APR 2017 12:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.3.8)  26 APR 2017 13:17
 entering extended mode
 **./thesis.tex
 (thesis.tex
@@ -781,12 +781,12 @@ Rozdzia\PlPrIeC {\l } 1.
 
 ]
 Rozdzia\PlPrIeC {\l } 2.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 9.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 5.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 9.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 5.
  [2
 
 ]
@@ -855,7 +855,7 @@ Here is how much of TeX's memory you used:
  8638 multiletter control sequences out of 15000+200000
  15538 words of font info for 47 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,11n,40p,1288b,291s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 39i,12n,40p,1288b,291s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/pl/pl
 mi.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/pl/plit.enc}{C:/Program Fil
 es/MiKTeX 2.9/fonts/enc/dvips/pl/plms.enc}{C:/Program Files/MiKTeX 2.9/fonts/en
@@ -868,7 +868,7 @@ blic/pl/plmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plmi8.pfb
 /MiKTeX 2.9/fonts/type1/public/pl/plsl12.pfb><C:/Program Files/MiKTeX 2.9/fonts
 /type1/public/pl/plsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/
 plti12.pfb>
-Output written on thesis.pdf (21 pages, 245416 bytes).
+Output written on thesis.pdf (21 pages, 245734 bytes).
 PDF statistics:
  115 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
