@@ -216,6 +216,7 @@
     <Compile Include="Models\ResourceType.cs" />
     <Compile Include="Models\Time.cs" />
     <Compile Include="Models\TimeGroup.cs" />
+    <Compile Include="Models\TimetableArchive.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
