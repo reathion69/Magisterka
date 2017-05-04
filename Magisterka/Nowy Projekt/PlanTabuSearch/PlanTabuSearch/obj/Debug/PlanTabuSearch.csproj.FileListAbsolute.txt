@@ -242,3 +242,4 @@ C:\Users\Michał\Source\Repos\Magisterka\Magisterka\Nowy Projekt\PlanTabuSearch\
 C:\Users\Michał\Source\Repos\Magisterka\Magisterka\Nowy Projekt\PlanTabuSearch\PlanTabuSearch\obj\Debug\PlanTabuSearch.csprojResolveAssemblyReference.cache
 C:\Users\Michał\Source\Repos\Magisterka\Magisterka\Nowy Projekt\PlanTabuSearch\PlanTabuSearch\obj\Debug\PlanTabuSearch.dll
 C:\Users\Michał\Source\Repos\Magisterka\Magisterka\Nowy Projekt\PlanTabuSearch\PlanTabuSearch\obj\Debug\PlanTabuSearch.pdb
+G:\MGR\Magisterka\Nowy Projekt\PlanTabuSearch\PlanTabuSearch\obj\Debug\PlanTabuSearch.csprojResolveAssemblyReference.cache

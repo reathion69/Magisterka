@@ -18,6 +18,7 @@ namespace PlanTabuSearch.Data
             archiveToLoad = new TimetableArchive();
             XDocument xdoc = XDocument.Load(dataPath);
 
+            //Wczytanie Instances i Metadata
             archiveToLoad.Instances = (
                 from inst in xdoc.Root.Element("Instances").Elements("Instance")
                 select new Instance
@@ -83,21 +84,99 @@ namespace PlanTabuSearch.Data
                        IdText = (string)time.Attribute("Id"),
                        Name = (string)time.Element("Name"),
                        TimeGroups = instance.TimeGroups.Where(x => ((string)time.Element("Day")?.Attribute("Reference"))?.Contains(x.IdText) == true || ((string)time.Element("Week")?.Attribute("Reference"))?.Contains(x.IdText) == true).ToList()
-                       .Concat(instance.TimeGroups.Where(x => time.Elements("TimeGroup")?.Where(y => ((string)y.Attribute("Reference")).Contains(x.IdText)).Any() == true).ToList()).ToList()
+                       .Concat(instance.TimeGroups.Where(x => time.Element("TimeGroups")?.Elements("TimeGroup")?.Where(y => ((string)y.Attribute("Reference")).Contains(x.IdText)).Any() == true).ToList()).ToList()
                    }
                   ).ToList();
+
+
+                //Wczytanie ResourceTypes
+                instance.ResourceTypes =
+                    (
+                        from resType in inst.Element("Resources").Element("ResourceTypes").Elements("ResourceType")
+                        select new ResourceType
+                        {
+                            IdText = (string)resType.Attribute("Id"),
+                            Name = (string)resType.Element("Name"),
+                        }
+                    ).ToList();
+
+                //Wczytanie ResourceGroups
+                instance.ResourceGroups =
+                   (
+                       from resGroup in inst.Element("Resources").Element("ResourceGroups").Elements("ResourceGroup")
+                       select new ResourceGroup
+                       {
+                           IdText = (string)resGroup.Attribute("Id"),
+                           Name = (string)resGroup.Element("Name"),
+                           Type = instance.ResourceTypes.Where(x => x.IdText.Contains((string)resGroup.Element("ResourceType").Attribute("Reference"))).FirstOrDefault()
+                       }
+                   ).ToList();
+
+                //Wczytanie Resources
+                instance.Resources =
+                    (
+                     from res in inst.Element("Resources").Elements("Resource")
+                     select new Resource
+                     {
+                         IdText = (string)res.Attribute("Id"),
+                         Name = (string)res.Element("Name"),
+                         Type = instance.ResourceTypes.Where(x => x.IdText.Contains((string)res.Element("ResourceType").Attribute("Reference"))).FirstOrDefault(),
+                         Groups = instance.ResourceGroups.Where(x => res.Element("ResourceGroups")?.Elements("ResourceGroup")?.Where(y => ((string)y.Attribute("Reference")).Contains(x.IdText)).Any() == true).ToList()
+                     }
+                    ).ToList();
+
+                //Wczytanie EventGroups
+                instance.EventGroups = (
+                        from course in inst.Element("Events").Element("EventGroups").Elements("Course")
+                        select new EventGroup
+                        {
+                            IdText = (string)course.Attribute("Id"),
+                            Name = (string)course.Element("Name"),
+                            Type = EventType.Course
+                        }
+
+                    ).ToList().Concat((
+                        from eventGroup in inst.Element("Events").Element("EventGroups").Elements("EventGroup")
+                        select new EventGroup
+                        {
+                            IdText = (string)eventGroup.Attribute("Id"),
+                            Name = (string)eventGroup.Element("Name"),
+                            Type = EventType.Other
+                        }
+                    ).ToList()).ToList();
+
+                instance.Events = (
+                        from eventR in inst.Element("Events").Elements("Event")
+                        select new Event
+                        {
+                            IdText = (string)eventR.Attribute("Id"),
+                            Color =  eventR.Attribute("Color")?.ToString(),
+                            Name = (string)eventR.Element("Name"),
+                            Duration = (int)eventR.Element("Duration"),
+                            Workload = eventR.Element("Workload")?.ToString() != null ? (int)eventR.Element("Workload") : 0,
+                            Time = instance.Times.Where(x => ((string)eventR.Element("Time")?.Attribute("Reference"))?.Contains(x.IdText) == true).FirstOrDefault(),
+                            EventResources = (
+                                from eRes in eventR.Element("Resources").Elements("Resource")
+                                select new EventResource
+                                {
+                                    Role = (string)eRes.Element("Role"),
+                                    Workload = eRes.Element("Workload")?.ToString() != null ? (int)eRes.Element("Workload") : 0,
+                                    Resource = instance.Resources.Where(x => ((string)eRes.Attribute("Reference"))?.Contains(x.IdText) == true).FirstOrDefault(),
+                                    ResourceType = instance.ResourceTypes.Where(x => x.IdText.Contains((string)eRes.Element("ResourceType").Attribute("Reference"))).FirstOrDefault()
+                                }
+                            ).ToList(),
+                            ResourceGroups = instance.ResourceGroups.Where(x => eventR.Element("ResourceGroups")?.Elements("ResourceGroup")?.Where(y => ((string)y.Attribute("Reference")).Contains(x.IdText)).Any() == true).ToList(),
+                            EventGroups = instance.EventGroups.Where(x => eventR.Element("EventGroups")?.Elements("EventGroup")?.Where(y => ((string)y.Attribute("Reference")).Contains(x.IdText)).Any() == true).ToList()
+                             .Concat(instance.EventGroups.Where(x => ((string)eventR.Element("Course")?.Attribute("Reference"))?.Contains(((string)x.IdText)) == true).ToList()).ToList()
+                        }
+                    ).ToList();
             }
         }
 
         public void LoadToDatabase()
         {
             ReadFromXML("ArtificialSudoku4x4.xml");
-            context.Instances.AddOrUpdate(archiveToLoad.Instances.ToArray());
-            foreach (var instance in archiveToLoad.Instances)
-            {
-                context.TimeGroups.AddOrUpdate(instance.TimeGroups.ToArray());
-                context.Times.AddOrUpdate(instance.Times.ToArray());
-            }
+            context.Instances.AddOrUpdate(archiveToLoad.Instances.ToArray());         
 
             context.SaveChanges();
         }
