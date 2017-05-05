@@ -197,6 +197,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Code\EvaluationFunction.cs" />
     <Compile Include="Code\SolutionManager.cs" />
+    <Compile Include="Code\TabuItem.cs" />
     <Compile Include="Code\TabuSearch.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

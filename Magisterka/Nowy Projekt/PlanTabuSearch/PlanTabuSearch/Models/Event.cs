@@ -5,7 +5,7 @@ using System.Web;
 
 namespace PlanTabuSearch.Models
 {
-    public class Event
+    public class Event : ICloneable
     {
         public int Id { get; set; }
         public string IdText { get; set; }
@@ -17,5 +17,10 @@ namespace PlanTabuSearch.Models
         public Time Time { get; set; }
         public List<EventResource> EventResources { get; set; }
         public List<ResourceGroup> ResourceGroups { get; set; }
+
+        public object Clone()
+        {
+            return (Event)this.MemberwiseClone();
+        }
     }
 }

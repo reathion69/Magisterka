@@ -5,7 +5,7 @@ using System.Web;
 
 namespace PlanTabuSearch.Models
 {
-    public class Instance
+    public class Instance: ICloneable
     {
         public int Id { get; set; }
         public string IdText { get; set; }
@@ -18,5 +18,18 @@ namespace PlanTabuSearch.Models
         public List<Event> Events { get; set; }
         public List<EventGroup> EventGroups { get; set; }
 
+        public object Clone()
+        {
+            Instance copy = (Instance)this.MemberwiseClone();
+
+            List<Event> EventsCopy = new List<Event>();
+            foreach (var item in Events)
+            {
+                EventsCopy.Add((Event)item.Clone());
+            }
+
+            copy.Events = EventsCopy;
+            return copy;
+        }
     }
 }

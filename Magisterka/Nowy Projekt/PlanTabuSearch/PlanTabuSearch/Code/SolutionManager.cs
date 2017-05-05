@@ -11,22 +11,47 @@ namespace PlanTabuSearch.Code
     {
         PlanDBContext context = new PlanDBContext();
         Instance instanceToResolve;
-        int rating = 0;
-
+        Instance bestInstance;
+        Instance actualInstance;
+        int bestRating = 0;
+        int iteration = 100;
         public void ResolveSimpleProblem()
         {
             LoadEntityFromDB();
+            List<TabuItem> tabuList = new List<TabuItem>();
             TabuSearch.GenerateStartSolutionForTimes(instanceToResolve);
-            rating = EvaluationFunction.EvaluateInstance(instanceToResolve);
-            PrintSolutionOnConsol();
+            bestInstance = instanceToResolve;
+            actualInstance = instanceToResolve;
+            bestRating = EvaluationFunction.EvaluateInstance(bestInstance);
+
+            for (int i = 0; i < iteration; i++)
+            {
+                var neighberhood = TabuSearch.GenerateNeighborhood(actualInstance, tabuList);
+                var tempInstance = TabuSearch.SelectBestInstanceFromNeighborhood(neighberhood);
+                if (tempInstance != null)
+                    actualInstance = tempInstance;
+
+                int rating = EvaluationFunction.EvaluateInstance(actualInstance);
+                if (bestRating > rating)
+                {
+                    bestInstance = actualInstance;
+                    bestRating = rating;
+                }
+
+                TabuSearch.UpdateTabuList(tabuList);
+            }
+
+
+            PrintSolutionOnConsol(instanceToResolve);
+            PrintSolutionOnConsol(bestInstance);
         }
 
-        public void PrintSolutionOnConsol()
+        public void PrintSolutionOnConsol(Instance instanceToPrint)
         {
-            foreach (var time in instanceToResolve.Times)
+            foreach (var time in instanceToPrint.Times)
             {
                 System.Diagnostics.Debug.WriteLine(time.Name + ":");
-                foreach (var ev in instanceToResolve.Events)
+                foreach (var ev in instanceToPrint.Events)
                 {
                     if (ev.Time == time)
                     {
@@ -36,7 +61,7 @@ namespace PlanTabuSearch.Code
                 System.Diagnostics.Debug.WriteLine("");
             }
 
-            System.Diagnostics.Debug.WriteLine("*** Rating: " + rating);
+            System.Diagnostics.Debug.WriteLine("*** Rating: " + EvaluationFunction.EvaluateInstance(instanceToPrint));
         }
 
         public void LoadEntityFromDB()
