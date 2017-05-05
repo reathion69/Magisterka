@@ -178,7 +178,7 @@ namespace PlanTabuSearch.Data
             ReadFromXML("ArtificialSudoku4x4.xml");
             context.Instances.AddOrUpdate(archiveToLoad.Instances.ToArray());         
 
-            context.SaveChanges();
+            context.SaveChanges();            
         }
     }
 }

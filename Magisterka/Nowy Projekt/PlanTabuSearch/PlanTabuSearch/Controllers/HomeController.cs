@@ -1,4 +1,5 @@
-﻿using PlanTabuSearch.Data;
+﻿using PlanTabuSearch.Code;
+using PlanTabuSearch.Data;
 using PlanTabuSearch.Models;
 using System;
 using System.Collections.Generic;
@@ -32,8 +33,11 @@ namespace PlanTabuSearch.Controllers
 
         public ActionResult LoadFromXML()
         {
-            XMLLoader loader = new XMLLoader();
-            loader.LoadToDatabase();
+            //XMLLoader loader = new XMLLoader();
+            //loader.LoadToDatabase();
+
+            SolutionManager sm = new SolutionManager();
+            sm.ResolveSimpleProblem();
 
             ViewBag.Message = "Dodano dane do bazy danych.";
 

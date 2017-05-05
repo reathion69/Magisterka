@@ -14,7 +14,7 @@ namespace PlanTabuSearch.Models
         public EventType Type { get; set; }
 
 
-        public List<Event> Event { get; set; }
+        public List<Event> Events { get; set; }
     }
 
     public enum EventType
