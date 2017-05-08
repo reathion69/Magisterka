@@ -8,22 +8,41 @@ namespace PlanTabuSearch.Code
 {
     public class TabuSearch
     {
-        static int NeighborhoodSize = 5;
-        static int TabuDuration = 20;
+        public static int NeighborhoodSize;
+        public static int TabuDuration;
         public static void GenerateStartSolutionForTimes(Instance instance)
         {
             Random r = new Random();
             int index = 0;
             foreach (var ev in instance.Events)
             {
-               // int randomIndex = r.Next(instance.Times.Count);
-                ev.Time = instance.Times[index/ instance.Times.Count];
-                index++;
-
+                int randomIndex = r.Next(instance.Times.Count);
+                ev.Time = instance.Times[randomIndex];
+               // index++;
             }
+
+            System.Diagnostics.Debug.WriteLine("Generated start solution.");
         }
 
-        public static void UpdateTabuList(List<TabuItem> tabuList)
+        public static List<TabuItem> GenerateAvaiableMoveList(Instance instance)
+        {
+            List<TabuItem> avaiableList = new List<TabuItem>();
+
+            foreach (var itemX in instance.Events)
+            {
+                foreach (var itemY in instance.Times)
+                {
+                    avaiableList.Add(new TabuItem(instance.Events.IndexOf(itemX), instance.Times.IndexOf(itemY), 0));
+                }
+            }
+
+
+            System.Diagnostics.Debug.WriteLine("Generated available moves list. Avaiable moves: " + avaiableList.Count);
+
+            return avaiableList;
+        }
+
+        public static void UpdateTabuList(List<TabuItem> tabuList, List<TabuItem> availableList)
         {
             List<TabuItem> toDelete = new List<TabuItem>();
             foreach (var item in tabuList)
@@ -35,41 +54,45 @@ namespace PlanTabuSearch.Code
             foreach (var item in toDelete)
             {
                 tabuList.Remove(item);
+                availableList.Add(item);
             }
         }
 
-        public static List<Instance> GenerateNeighborhood(Instance instance, List<TabuItem> tabuList)
+        public static Instance SelectBestInstanceFromNeighborhood(Instance instance, List<TabuItem> tabuList, List<TabuItem> availableList)
         {
             Random r = new Random();
             List<Instance> neighborhood = new List<Instance>();
+            List<TabuItem> usedItems = new List<TabuItem>();
             for (int i = 0; i < NeighborhoodSize; i++)
             {
-                int x = 0;
-                int y = 0;
-                do
+                if (availableList.Count > 0)
                 {
-                    x = r.Next(instance.Events.Count);
-                    do
-                    {
-                        y = r.Next(instance.Events.Count);
-                    } while (y == x);
+                    TabuItem item = availableList.ElementAt(r.Next(availableList.Count));
+                    availableList.Remove(item);
+                    usedItems.Add(item);
+                    Instance copy = (Instance)instance.Clone();
+                    copy.Events[item.IndexX].Time = copy.Times[item.IndexY];
 
-                } while (tabuList.Where(t => t.IndexX == x && t.IndexY == y).Any());
-
-                tabuList.Add(new TabuItem(x, y, TabuDuration));
-
-                Instance copy = (Instance)instance.Clone();
-                Time a = copy.Events[x].Time;
-                copy.Events[x].Time = copy.Events[y].Time;
-                copy.Events[y].Time = a;
-
-                neighborhood.Add(copy);
+                    neighborhood.Add(copy);
+                }
+                else
+                {
+                    System.Diagnostics.Debug.WriteLine("Non moves available.");
+                }
             }
 
-            return neighborhood;
+            var inst = SelectBestInstanceFromGeneratedNeighborhood(neighborhood);
+
+            var itemToTabu = usedItems[neighborhood.IndexOf(inst)];
+            availableList.AddRange(usedItems);
+            availableList.Remove(itemToTabu);
+            itemToTabu.TabuDuration = TabuDuration;
+            tabuList.Add(itemToTabu);
+
+            return inst;
         }
 
-        public static Instance SelectBestInstanceFromNeighborhood(List<Instance> neighborhood)
+        static Instance SelectBestInstanceFromGeneratedNeighborhood(List<Instance> neighborhood)
         {
             int bestIndex = -1;
             int bestRating = -1;

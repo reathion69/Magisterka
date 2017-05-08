@@ -9,25 +9,36 @@ namespace PlanTabuSearch.Code
 {
     public class SolutionManager
     {
+
+        const int iteration = 300;
+        const int neighborhoodSize = 400;
+        const int tabuDuration = 50;
+
+
         PlanDBContext context = new PlanDBContext();
         Instance instanceToResolve;
         Instance bestInstance;
         Instance actualInstance;
         int bestRating = 0;
-        int iteration = 100;
+
         public void ResolveSimpleProblem()
         {
-            LoadEntityFromDB();
+            int resultIteration = 0;
+
+            LoadEntityFromDB(4);
+            TabuSearch.NeighborhoodSize = neighborhoodSize;
+            TabuSearch.TabuDuration = tabuDuration;
+
             List<TabuItem> tabuList = new List<TabuItem>();
+            List<TabuItem> availableList = new List<TabuItem>();
             TabuSearch.GenerateStartSolutionForTimes(instanceToResolve);
+            availableList = TabuSearch.GenerateAvaiableMoveList(instanceToResolve);
             bestInstance = instanceToResolve;
             actualInstance = instanceToResolve;
             bestRating = EvaluationFunction.EvaluateInstance(bestInstance);
-
             for (int i = 0; i < iteration; i++)
             {
-                var neighberhood = TabuSearch.GenerateNeighborhood(actualInstance, tabuList);
-                var tempInstance = TabuSearch.SelectBestInstanceFromNeighborhood(neighberhood);
+                var tempInstance = TabuSearch.SelectBestInstanceFromNeighborhood(actualInstance, tabuList, availableList);
                 if (tempInstance != null)
                     actualInstance = tempInstance;
 
@@ -37,13 +48,20 @@ namespace PlanTabuSearch.Code
                     bestInstance = actualInstance;
                     bestRating = rating;
                 }
+                
+                if (bestRating<=0)
+                {
+                    resultIteration = i;
+                    break;
+                }
 
-                TabuSearch.UpdateTabuList(tabuList);
+                TabuSearch.UpdateTabuList(tabuList, availableList);
             }
 
 
             PrintSolutionOnConsol(instanceToResolve);
             PrintSolutionOnConsol(bestInstance);
+            System.Diagnostics.Debug.WriteLine("&&& Result iteration: " + resultIteration);
         }
 
         public void PrintSolutionOnConsol(Instance instanceToPrint)
@@ -64,9 +82,9 @@ namespace PlanTabuSearch.Code
             System.Diagnostics.Debug.WriteLine("*** Rating: " + EvaluationFunction.EvaluateInstance(instanceToPrint));
         }
 
-        public void LoadEntityFromDB()
+        public void LoadEntityFromDB(int InstanceId)
         {
-            instanceToResolve = context.Instances.Where(x => x.Id == 1)
+            instanceToResolve = context.Instances.Where(x => x.Id == InstanceId)
                                        .Include(x => x.Metadata)
                                        .Include(x => x.Resources
                                                .Select(y => y.Groups))

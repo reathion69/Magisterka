@@ -162,7 +162,7 @@ namespace PlanTabuSearch.Data
                                     Role = (string)eRes.Element("Role"),
                                     Workload = eRes.Element("Workload")?.ToString() != null ? (int)eRes.Element("Workload") : 0,
                                     Resource = instance.Resources.Where(x => ((string)eRes.Attribute("Reference"))?.Contains(x.IdText) == true).FirstOrDefault(),
-                                    ResourceType = instance.ResourceTypes.Where(x => x.IdText.Contains((string)eRes.Element("ResourceType").Attribute("Reference"))).FirstOrDefault()
+                                    ResourceType = instance.ResourceTypes.Where(x => ((string)eRes.Element("ResourceType")?.Attribute("Reference"))?.Contains(x.IdText) == true).FirstOrDefault()
                                 }
                             ).ToList(),
                             ResourceGroups = instance.ResourceGroups.Where(x => eventR.Element("ResourceGroups")?.Elements("ResourceGroup")?.Where(y => ((string)y.Attribute("Reference")).Contains(x.IdText)).Any() == true).ToList(),
@@ -175,7 +175,7 @@ namespace PlanTabuSearch.Data
 
         public void LoadToDatabase()
         {
-            ReadFromXML("ArtificialSudoku4x4.xml");
+            ReadFromXML("ArtificialAbramson15.xml");
             context.Instances.AddOrUpdate(archiveToLoad.Instances.ToArray());         
 
             context.SaveChanges();            
