@@ -175,7 +175,7 @@ namespace PlanTabuSearch.Data
 
         public void LoadToDatabase()
         {
-            ReadFromXML("ArtificialAbramson15.xml");
+            ReadFromXML("FinlandHighSchool.xml");
             context.Instances.AddOrUpdate(archiveToLoad.Instances.ToArray());         
 
             context.SaveChanges();            

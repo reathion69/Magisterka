@@ -10,8 +10,8 @@ namespace PlanTabuSearch.Code
     public class SolutionManager
     {
 
-        const int iteration = 300;
-        const int neighborhoodSize = 400;
+        const int iteration = 1000;
+        const int neighborhoodSize = 300;
         const int tabuDuration = 50;
 
 
@@ -25,7 +25,7 @@ namespace PlanTabuSearch.Code
         {
             int resultIteration = 0;
 
-            LoadEntityFromDB(4);
+            LoadEntityFromDB(5);
             TabuSearch.NeighborhoodSize = neighborhoodSize;
             TabuSearch.TabuDuration = tabuDuration;
 
@@ -66,6 +66,8 @@ namespace PlanTabuSearch.Code
 
         public void PrintSolutionOnConsol(Instance instanceToPrint)
         {
+            Time timeForDuration2 = null;
+            Time timeForDuration3 = null;
             foreach (var time in instanceToPrint.Times)
             {
                 System.Diagnostics.Debug.WriteLine(time.Name + ":");
@@ -75,8 +77,22 @@ namespace PlanTabuSearch.Code
                     {
                         System.Diagnostics.Debug.WriteLine(ev.Name);
                     }
+
+                    if (ev.Time == timeForDuration2 && (ev.Duration == 2 || ev.Duration == 3))
+                    {
+                        System.Diagnostics.Debug.WriteLine(ev.Name + "Dur 2");
+                    }
+
+                    if (ev.Time == timeForDuration3 &&  ev.Duration == 3)
+                    {
+                        System.Diagnostics.Debug.WriteLine(ev.Name + "Dur 3");
+                    }
                 }
+
                 System.Diagnostics.Debug.WriteLine("");
+
+                timeForDuration3 = timeForDuration2;
+                timeForDuration2 = time;
             }
 
             System.Diagnostics.Debug.WriteLine("*** Rating: " + EvaluationFunction.EvaluateInstance(instanceToPrint));

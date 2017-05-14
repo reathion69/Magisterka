@@ -42,9 +42,17 @@ namespace PlanTabuSearch.Code
         static int CheckResourceConflict(Instance instance)
         {
             int rating = 0;
+            Time timeForDuration2 = null;
+            Time timeForDuration3 = null;
             foreach (var time in instance.Times)
             {
                 List<Event> eventsOnTime = instance.Events.Where(x => x.Time == time).ToList();
+
+                if (timeForDuration2 != null)
+                    eventsOnTime.AddRange(instance.Events.Where(x => x.Time == timeForDuration2 && (x.Duration == 2 || x.Duration == 3)).ToList());
+                if (timeForDuration3 != null)
+                    eventsOnTime.AddRange(instance.Events.Where(x => x.Time == timeForDuration3 && x.Duration == 3).ToList());
+
                 foreach (var ev in eventsOnTime)
                 {
                     foreach (var res in ev.EventResources)
@@ -57,6 +65,9 @@ namespace PlanTabuSearch.Code
                         }
                     }
                 }
+
+                timeForDuration3 = timeForDuration2;
+                timeForDuration2 = time;
             }
 
             return rating;
