@@ -10,6 +10,7 @@ namespace PlanTabuSearch.Code
     {
         const int resourceEmptyPenalthy = 50;
         const int resourceConflictPenalthy = 10;
+        const int eventIsSplitPenalthy = 23;
 
         public static int EvaluateInstance(Instance instance)
         {
@@ -48,10 +49,27 @@ namespace PlanTabuSearch.Code
             {
                 List<Event> eventsOnTime = instance.Events.Where(x => x.Time == time).ToList();
 
+                // Implementacja eventów o długości dłuższej niż 1 (maksymalna długość zaimplementowana to 3) 
+                // ***********************************************
+                List<Event> eventsToAddOnDuration2 = null;
+                List<Event> eventsToAddOnDuration3 = null;
+
                 if (timeForDuration2 != null)
-                    eventsOnTime.AddRange(instance.Events.Where(x => x.Time == timeForDuration2 && (x.Duration == 2 || x.Duration == 3)).ToList());
+                    eventsToAddOnDuration2 = (instance.Events.Where(x => x.Time == timeForDuration2 && (x.Duration == 2 || x.Duration == 3)).ToList());
                 if (timeForDuration3 != null)
-                    eventsOnTime.AddRange(instance.Events.Where(x => x.Time == timeForDuration3 && x.Duration == 3).ToList());
+                    eventsToAddOnDuration3 = (instance.Events.Where(x => x.Time == timeForDuration3 && x.Duration == 3).ToList());
+
+
+                if (timeForDuration2 != null && eventsToAddOnDuration2.Any() && time.TimeGroups.Where(x => x.Type == TimeGroupsType.Day).FirstOrDefault() != timeForDuration2.TimeGroups.Where(x => x.Type == TimeGroupsType.Day).FirstOrDefault())
+                    rating += eventsToAddOnDuration2.Count * eventIsSplitPenalthy;
+
+                if (timeForDuration3 != null && eventsToAddOnDuration3.Any() && time.TimeGroups.Where(x => x.Type == TimeGroupsType.Day).FirstOrDefault() != timeForDuration3.TimeGroups.Where(x => x.Type == TimeGroupsType.Day).FirstOrDefault())
+                    rating += eventsToAddOnDuration3.Count * eventIsSplitPenalthy;
+                if (eventsToAddOnDuration2 != null)
+                    eventsOnTime.AddRange(eventsToAddOnDuration2);
+                if (eventsToAddOnDuration3 != null)
+                    eventsOnTime.AddRange(eventsToAddOnDuration3);
+                // ***********************************************
 
                 foreach (var ev in eventsOnTime)
                 {
