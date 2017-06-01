@@ -13,7 +13,6 @@ namespace PlanZajecProsteUI.Code
         public static void GenerateStartSolutionForTimes(Instance instance)
         {
             Random r = new Random();
-            int index = 0;
             foreach (var ev in instance.Events)
             {
                 int randomIndex = r.Next(instance.Times.Count);

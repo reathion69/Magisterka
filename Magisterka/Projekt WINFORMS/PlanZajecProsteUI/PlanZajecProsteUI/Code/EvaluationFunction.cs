@@ -11,15 +11,30 @@ namespace PlanZajecProsteUI.Code
         const int resourceEmptyPenalthy = 50;
         const int resourceConflictPenalthy = 10;
         const int eventIsSplitPenalthy = 23;
+        const int isWindowPenalthy = 2;
 
         public static int EvaluateInstance(Instance instance)
         {
             int rating = 0;
 
             rating += CheckResourceConflict(instance);
+            rating += CheckWidnowsExistForClass(instance);
 
             return rating;
         }
+
+        public static int EvaluateInstanceWithRaport(Instance instance)
+        {
+            int rating = 0;
+
+            int resConflict = CheckResourceConflict(instance);
+            int windowExist = CheckWidnowsExistForClass(instance);
+            rating += resConflict;
+            rating += windowExist;
+            System.Diagnostics.Debug.WriteLine("+++ Resources Conflict: " + resConflict + " *** Window Exists: " + windowExist);
+            return rating;
+        }
+
 
         static int CheckResourceEmpty(Instance instance)
         {
@@ -33,6 +48,56 @@ namespace PlanZajecProsteUI.Code
                     {
                         if (res.Resource == null)
                             rating += resourceEmptyPenalthy;
+                    }
+                }
+            }
+
+            return rating;
+        }
+
+        static int CheckWidnowsExistForClass(Instance instance)
+        {
+            List<Resource> Classes = instance.Resources.Where(x => x.Type.Name.Contains("Class")).ToList();
+            List<TimeGroup> days = instance.TimeGroups.Where(x => x.Type == TimeGroupsType.Day).ToList();
+            int rating = 0;
+
+            foreach (var classObj in Classes)
+            {
+                foreach (var day in days)
+                {
+                    List<Time> times = instance.Times.Where(x => x.TimeGroups.Any(y => y == day)).ToList();
+                    bool start = false;
+                    bool end = false;
+                    int size = 0;
+                    int durationIterator = 0;
+                    foreach (var time in times)
+                    {
+                        if (durationIterator <= 0)
+                        {
+                            Event ev = instance.Events.Where(x => x.Time == time && x.EventResources.Any(y => y.Resource == classObj)).FirstOrDefault();
+                            if (ev != null)
+                            {
+                                durationIterator = ev.Duration;
+                                start = true;
+                                if (end)
+                                {
+                                    end = false;
+                                    rating += size * isWindowPenalthy;
+                                    size = 0;
+                                }
+                            }
+                            else
+                            {
+                                if (start)
+                                {
+                                    end = true;
+                                    size++;
+                                }
+                            }
+
+                        }
+
+                        durationIterator--;
                     }
                 }
             }

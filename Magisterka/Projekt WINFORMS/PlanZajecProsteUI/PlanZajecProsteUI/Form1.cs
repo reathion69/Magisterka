@@ -43,16 +43,47 @@ namespace PlanZajecProsteUI
                 PlanViewModel p = new PlanViewModel();
 
                 p.Godzina = (7 + i).ToString() + ":00";
-                p.Poniedziałek = instance.Events.Where(x => x.Time == pon[i] && x.EventResources.Any(y => y.ResourceType?.Name?.Contains("Class") == true && y.Resource.Id == classID)).FirstOrDefault()?.Name;
-                p.Wtorek = instance.Events.Where(x => x.Time == wt[i] && x.EventResources.Any(y => y.ResourceType?.Name?.Contains("Class") == true && y.Resource.Id == classID)).FirstOrDefault()?.Name;
-                p.Środa = instance.Events.Where(x => x.Time == sr[i] && x.EventResources.Any(y => y.ResourceType?.Name?.Contains("Class") == true && y.Resource.Id == classID)).FirstOrDefault()?.Name;
-                p.Czwartek = instance.Events.Where(x => x.Time == czw[i] && x.EventResources.Any(y => y.ResourceType?.Name?.Contains("Class") == true && y.Resource.Id == classID)).FirstOrDefault()?.Name;
-                p.Piątek = instance.Events.Where(x => x.Time == pt[i] && x.EventResources.Any(y => y.ResourceType?.Name?.Contains("Class") == true && y.Resource.Id == classID)).FirstOrDefault()?.Name;
-
+                List<Event> events = instance.Events.Where(x => (x.Time == pon[i] || (i > 0 && (x.Duration == 2 || x.Duration == 3) && x.Time == pon[i - 1]) || ((i > 1 && x.Duration == 3 && x.Time == pon[i - 2]))) && x.EventResources.Any(y => y.Role?.Contains("Class") == true && y.Resource.Id == classID)).ToList();
+                foreach (var item in events)
+                {
+                    p.Poniedziałek += item.Name + " ";
+                }
+                events = instance.Events.Where(x => (x.Time == wt[i] || (i > 0 && (x.Duration == 2 || x.Duration == 3) && x.Time == wt[i - 1]) || ((i > 1 && x.Duration == 3 && x.Time == wt[i - 2]))) && x.EventResources.Any(y => y.Role?.Contains("Class") == true && y.Resource.Id == classID)).ToList();
+                foreach (var item in events)
+                {
+                    p.Wtorek += item.Name + " ";
+                }
+                events = instance.Events.Where(x => (x.Time == sr[i] || (i > 0 && (x.Duration == 2 || x.Duration == 3) && x.Time == sr[i - 1]) || ((i > 1 && x.Duration == 3 && x.Time == sr[i - 2]))) && x.EventResources.Any(y => y.Role?.Contains("Class") == true && y.Resource.Id == classID)).ToList();
+                foreach (var item in events)
+                {
+                    p.Środa += item.Name + " ";
+                }
+                events = instance.Events.Where(x => (x.Time == czw[i] || (i > 0 && (x.Duration == 2 || x.Duration == 3) && x.Time == czw[i - 1]) || ((i > 1 && x.Duration == 3 && x.Time == czw[i - 2]))) && x.EventResources.Any(y => y.Role?.Contains("Class") == true && y.Resource.Id == classID)).ToList();
+                foreach (var item in events)
+                {
+                    p.Czwartek += item.Name + " ";
+                }
+                events = instance.Events.Where(x => (x.Time == pt[i] || (i > 0 && (x.Duration == 2 || x.Duration == 3) && x.Time == pt[i - 1]) || ((i > 1 && x.Duration == 3 && x.Time == pt[i - 2]))) && x.EventResources.Any(y => y.Role?.Contains("Class") == true && y.Resource.Id == classID)).ToList();
+                foreach (var item in events)
+                {
+                    p.Piątek += item.Name + " ";
+                }
+               
                 plan.Add(p);
-            }          
+            }
 
-            dataGridView1.DataSource = plan;
+            if (dataGridView1.InvokeRequired)
+            {
+                dataGridView1.Invoke((MethodInvoker)delegate
+                {
+                    // Running on the UI thread
+                    dataGridView1.DataSource = plan;
+                });
+            }
+            else
+            {
+                dataGridView1.DataSource = plan;
+            }
         }
 
         void RefreshComboBoxData()
@@ -68,7 +99,7 @@ namespace PlanZajecProsteUI
             ClassComboBox.DisplayMember = "Name";
             ClassComboBox.ValueMember = "Id";
             ClassSource.DataSource = context.Instances.Where(x => x.Id == (int)SelectInstanceComboBox.SelectedValue).Include(x => x.Resources
-                                               .Select(y => y.Type)).FirstOrDefault()?.Resources.Where( x=> x.Type.Name.Contains("Class")).ToList();
+                                               .Select(y => y.Type)).FirstOrDefault()?.Resources.Where(x => x.Type.Name.Contains("Class")).ToList();
             ClassComboBox.DataSource = ClassSource.DataSource;
         }
         private void LoadToDatabaseButton_Click(object sender, EventArgs e)
@@ -90,46 +121,46 @@ namespace PlanZajecProsteUI
         {
             int selectedInstanceId = (int)SelectInstanceComboBox.SelectedValue;
             int selectedClassId = (int)ClassComboBox.SelectedValue;
+
+            int iteration = Int32.Parse(IterationTextBox.Text);
+            int tabuDuration = Int32.Parse(TabuDurationTextBox.Text);
+            int neighborhoodSize = Int32.Parse(NeighborhoodSizeTextBox.Text);
             new System.Threading.Thread(new System.Threading.ThreadStart(() =>
-            {                
+            {
+                sm.iteration = iteration;
+                sm.tabuDuration = tabuDuration;
+                sm.neighborhoodSize = neighborhoodSize;
                 sm.WriteOnConsol = WriteOnConsol;
                 sm.EnableButtons = EnableButtons;
                 sm.ResolveSimpleProblem(selectedInstanceId);
                 LoadDataView(selectedClassId, sm.bestInstance);
-            })).Start();           
+            })).Start();
         }
 
         public void WriteOnConsol(string text)
         {
-            ConsoleRichTextBox.Invoke((MethodInvoker)delegate {
+            ConsoleRichTextBox.Invoke((MethodInvoker)delegate
+            {
                 // Running on the UI thread
                 ConsoleRichTextBox.AppendText(text);
-            });          
+            });
         }
 
         public void EnableButtons(bool enable)
         {
-            SaveButton.Invoke((MethodInvoker)delegate {
-                // Running on the UI thread
-                SaveButton.Enabled = enable;
-            });
-
-            LoadToDatabaseButton.Invoke((MethodInvoker)delegate {
+            LoadToDatabaseButton.Invoke((MethodInvoker)delegate
+            {
                 // Running on the UI thread
                 LoadToDatabaseButton.Enabled = enable;
             });
 
-            ResolveButton.Invoke((MethodInvoker)delegate {
+            ResolveButton.Invoke((MethodInvoker)delegate
+            {
                 // Running on the UI thread
                 ResolveButton.Enabled = enable;
             });
         }
 
-        private void SaveButton_Click(object sender, EventArgs e)
-        {
-            sm.SaveBestInstance();
-            RefreshComboBoxData();
-        }
 
         private void ConsoleRichTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -144,11 +175,16 @@ namespace PlanZajecProsteUI
 
         private void ClassComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            sm.LoadEntityFromDB((int)SelectInstanceComboBox.SelectedValue);
-            if (sm.instanceToResolve != null)
+            if (sm.bestInstance != null)
             {
-                LoadDataView((int)ClassComboBox.SelectedValue, sm.instanceToResolve);
+                LoadDataView((int)ClassComboBox.SelectedValue, sm.bestInstance);
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            sm.EvaluateBestInstanceWithRaport();
+        }
+      
     }
 }

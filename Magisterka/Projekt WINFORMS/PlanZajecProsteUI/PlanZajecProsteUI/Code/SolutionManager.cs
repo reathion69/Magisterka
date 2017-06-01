@@ -11,9 +11,9 @@ namespace PlanZajecProsteUI.Code
     public class SolutionManager
     {
 
-        const int iteration = 1000;
-        const int neighborhoodSize = 300;
-        const int tabuDuration = 200;
+        public int iteration = 1000;
+        public int neighborhoodSize = 300;
+        public int tabuDuration = 800;
 
 
         PlanDBContext context = new PlanDBContext();
@@ -28,10 +28,12 @@ namespace PlanZajecProsteUI.Code
         public delegate void FunctionWithBool(bool b);
         public FunctionWithBool EnableButtons;
 
+        List<int> raport = new List<int>();
 
         public void ResolveSimpleProblem(int Id)
         {
             EnableButtons(false);
+            raport.Clear();
             int resultIteration = 0;
 
             LoadEntityFromDB(Id);
@@ -40,11 +42,11 @@ namespace PlanZajecProsteUI.Code
 
             List<TabuItem> tabuList = new List<TabuItem>();
             List<TabuItem> availableList = new List<TabuItem>();
-            TabuSearch.GenerateStartSolutionForTimes(instanceToResolve);
-            availableList = TabuSearch.GenerateAvaiableMoveList(instanceToResolve);
-            bestInstance = instanceToResolve;
-            actualInstance = instanceToResolve;
-            bestRating = EvaluationFunction.EvaluateInstance(bestInstance);
+            actualInstance = (Instance)instanceToResolve.Clone();
+            TabuSearch.GenerateStartSolutionForTimes(actualInstance);
+            availableList = TabuSearch.GenerateAvaiableMoveList(actualInstance);
+            //bestInstance = instanceToResolve;
+            bestRating = EvaluationFunction.EvaluateInstance(actualInstance);
             for (int i = 0; i < iteration; i++)
             {
                 var tempInstance = TabuSearch.SelectBestInstanceFromNeighborhood(actualInstance, tabuList, availableList);
@@ -52,6 +54,7 @@ namespace PlanZajecProsteUI.Code
                     actualInstance = tempInstance;
 
                 int rating = EvaluationFunction.EvaluateInstance(actualInstance);
+                raport.Add(rating);
                 if (bestRating > rating)
                 {
                     bestInstance = actualInstance;
@@ -75,7 +78,28 @@ namespace PlanZajecProsteUI.Code
             PrintSolutionOnConsol(bestInstance);
             System.Diagnostics.Debug.WriteLine("&&& Result iteration: " + resultIteration);
             WriteOnConsol("\n &&& Result iteration: " + resultIteration);
+            EvaluationFunction.EvaluateInstanceWithRaport(bestInstance);
+            SaveRaportToFile();
             EnableButtons(true);
+        }
+
+        public void SaveRaportToFile()
+        {
+            string text = "";
+            System.IO.StreamWriter file = new System.IO.StreamWriter("D:\\raportPlan.txt");
+            foreach (var item in raport)
+            {
+                text += item.ToString() + "\n";
+            }
+
+            file.WriteLine(text);
+
+            file.Close();
+        }
+
+        public void EvaluateBestInstanceWithRaport()
+        {
+            EvaluationFunction.EvaluateInstanceWithRaport(bestInstance);
         }
 
         public void PrintSolutionOnConsol(Instance instanceToPrint)
@@ -137,9 +161,7 @@ namespace PlanZajecProsteUI.Code
                                        .Include(x => x.ResourceGroups
                                                .Select(y => y.Events))
                                        .ToList().FirstOrDefault();
-
-
-            int a = 1;
+            
         }
     }
 }
