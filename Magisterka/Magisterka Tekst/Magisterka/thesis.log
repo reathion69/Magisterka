@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.5)  29 APR 2017 19:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.5)  4 JUN 2017 16:25
 entering extended mode
 **thesis.tex
 (thesis.tex
@@ -505,60 +505,87 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 \rot@float@box=\box28
 \rot@mess@toks=\toks23
 )
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\listings.sty"
+\lst@mode=\count111
+\lst@gtempboxa=\box29
+\lst@token=\toks24
+\lst@length=\count112
+\lst@currlwidth=\dimen141
+\lst@column=\count113
+\lst@pos=\count114
+\lst@lostspace=\dimen142
+\lst@width=\dimen143
+\lst@newlines=\count115
+\lst@lineno=\count116
+\lst@maxwidth=\dimen144
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count117
+\lst@skipnumbers=\count118
+\lst@framebox=\box30
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ltxmisc\anysize.sty"
 Package: anysize 1994/08/13 1.0 Contributed LaTeX2e package
 
 Package: `anysize' 1.0 <1994/08/13>
-\@Leftmargin=\dimen141
-\@Rightmargin=\dimen142
-\@Topmargin=\dimen143
-\@Bottommargin=\dimen144
+\@Leftmargin=\dimen145
+\@Rightmargin=\dimen146
+\@Topmargin=\dimen147
+\@Bottommargin=\dimen148
 ) (fancyhdr.sty
-\headwidth=\dimen145
+\headwidth=\dimen149
 ) (thesis.aux (header.aux))
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Info: Redefining \celsius on input line 39.
-Package gensymb Info: Faking symbols for \degree and \celsius on input line 39.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Info: Redefining \celsius on input line 40.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 40.
 
 
 
 Package gensymb Warning: Not defining \perthousand.
 
-LaTeX Info: Redefining \ohm on input line 39.
-Package gensymb Info: Using \Omega for \ohm on input line 39.
+LaTeX Info: Redefining \ohm on input line 40.
+Package gensymb Info: Using \Omega for \ohm on input line 40.
 
 Package gensymb Warning: Not defining \micro.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count111
-\scratchdimen=\dimen146
-\scratchbox=\box29
-\nofMPsegments=\count112
-\nofMParguments=\count113
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count114
-\MPscratchDim=\dimen147
-\MPnumerator=\count115
-\makeMPintoPDFobject=\count116
-\everyMPtoPDFconversion=\toks25
+\scratchcounter=\count119
+\scratchdimen=\dimen150
+\scratchbox=\box31
+\nofMPsegments=\count120
+\nofMParguments=\count121
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count122
+\MPscratchDim=\dimen151
+\MPnumerator=\count123
+\makeMPintoPDFobject=\count124
+\everyMPtoPDFconversion=\toks26
 )
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
 Package caption Info: rotating package is loaded.
 Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count125
  (header.tex <./figures/godlo.PNG, id=1, 909.3975pt x 909.3975pt>
 File: ./figures/godlo.PNG Graphic file (type png)
 
@@ -605,114 +632,337 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 3.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
-\tf@toc=\write3
- [1
+) [1
 
-]
+])
+\tf@toc=\write3
+ [2]
 (thesis.lof)
 \tf@lof=\write4
- [2
+ [3
 
 ] (thesis.lot)
 \tf@lot=\write5
-) [3
+) [4
 
 ] (Rozdzialy/wprowadzenie.tex
 Rozdzia\PlPrIeC {\l } 1.
-) (Rozdzialy/planzajec.tex [1
+) (Rozdzialy/algorytmtabu.tex [1
 
 
 ]
 Rozdzia\PlPrIeC {\l } 2.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 5.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2
+
+]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 12.
+
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 5.
- [2
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 12.
 
-]
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[3]
+[3] <Resources/PseudokodTabu.png, id=43, 601.4972pt x 335.00156pt>
+File: Resources/PseudokodTabu.png Graphic file (type png)
+
+<use Resources/PseudokodTabu.png>
+Package pdftex.def Info: Resources/PseudokodTabu.png used on input line 28.
+(pdftex.def)             Requested size: 601.49573pt x 335.00073pt.
+
+Overfull \hbox (160.478pt too wide) in paragraph at lines 28--29
+ [][] 
+ []
+
+
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[4]) (Rozdzialy/algorytmtabu.tex
+[4]
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[5]
-Rozdzia\PlPrIeC {\l } 3.
+[5 <./Resources/PseudokodTabu.png>]
+Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [6
-
-]
+[6]) (Rozdzialy/planzajec.tex
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
 [7]
-Overfull \vbox (2.49998pt too high) has occurred while \output is active []
-
-
-[8]
-Overfull \vbox (2.49998pt too high) has occurred while \output is active []
-
-
-[9] <Resources/k.png, id=61, 426.59375pt x 894.34125pt>
-File: Resources/k.png Graphic file (type png)
- <use Resources/k.png>
-Package pdftex.def Info: Resources/k.png used on input line 55.
-(pdftex.def)             Requested size: 289.69585pt x 607.33887pt.
-)
-(thesis.bbl
-Overfull \vbox (2.49998pt too high) has occurred while \output is active []
-
-
-[10]
-Overfull \vbox (2.49998pt too high) has occurred while \output is active []
-
-
-[11 <./Resources/k.png>]) (appendix.tex [12
+Rozdzia\PlPrIeC {\l } 3.
+[8
 
 ]
-Dodatek A.
-[13
+Overfull \vbox (2.49998pt too high) has occurred while \output is active []
+
+
+[9]
+Overfull \vbox (2.49998pt too high) has occurred while \output is active []
+
+
+[10]) (Rozdzialy/danewejsciowe.tex
+Overfull \vbox (2.49998pt too high) has occurred while \output is active []
+
+
+[11]
+Rozdzia\PlPrIeC {\l } 4.
+<Resources/szablonXHSTT.png, id=74, 456.95718pt x 86.57344pt>
+File: Resources/szablonXHSTT.png Graphic file (type png)
+
+<use Resources/szablonXHSTT.png>
+Package pdftex.def Info: Resources/szablonXHSTT.png used on input line 12.
+(pdftex.def)             Requested size: 456.95605pt x 86.57321pt.
+
+Overfull \hbox (15.93832pt too wide) in paragraph at lines 12--13
+ [][] 
+ []
+
+[12
+
+ <./Resources/szablonXHSTT.png>]
+<Resources/szablonXHSTTprzyklad.png, id=79, 462.22687pt x 141.52875pt>
+File: Resources/szablonXHSTTprzyklad.png Graphic file (type png)
+
+<use Resources/szablonXHSTTprzyklad.png>
+Package pdftex.def Info: Resources/szablonXHSTTprzyklad.png used on input line 
+21.
+(pdftex.def)             Requested size: 462.22574pt x 141.5284pt.
+
+Overfull \hbox (21.20801pt too wide) in paragraph at lines 21--22
+ [][] 
+ []
+
+<Resources/skladniaSzablon.png, id=80, 460.72125pt x 85.06781pt>
+File: Resources/skladniaSzablon.png Graphic file (type png)
+
+<use Resources/skladniaSzablon.png>
+Package pdftex.def Info: Resources/skladniaSzablon.png used on input line 34.
+(pdftex.def)             Requested size: 460.72012pt x 85.0676pt.
+
+Overfull \hbox (19.7024pt too wide) in paragraph at lines 34--35
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (2.49998pt too high) has occurred while \output is active []
+
+
+[13 <./Resources/szablonXHSTTprzyklad.png> <./Resources/skladniaSzablon.png>]
+<Resources/skladniaTimes.png, id=86, 462.97969pt x 201.75375pt>
+File: Resources/skladniaTimes.png Graphic file (type png)
+
+<use Resources/skladniaTimes.png>
+Package pdftex.def Info: Resources/skladniaTimes.png used on input line 45.
+(pdftex.def)             Requested size: 462.97855pt x 201.75325pt.
+
+Overfull \hbox (21.96082pt too wide) in paragraph at lines 45--46
+ [][] 
+ []
+
+<Resources/timesPrzyklad.png, id=87, 459.21562pt x 184.43906pt>
+File: Resources/timesPrzyklad.png Graphic file (type png)
+
+<use Resources/timesPrzyklad.png>
+Package pdftex.def Info: Resources/timesPrzyklad.png used on input line 52.
+(pdftex.def)             Requested size: 459.2145pt x 184.4386pt.
+
+Overfull \hbox (18.19676pt too wide) in paragraph at lines 52--53
+ [][] 
+ []
+
+<Resources/resourcesSkladnia.png, id=88, 487.06969pt x 228.855pt>
+File: Resources/resourcesSkladnia.png Graphic file (type png)
+
+<use Resources/resourcesSkladnia.png>
+Package pdftex.def Info: Resources/resourcesSkladnia.png used on input line 63.
+
+(pdftex.def)             Requested size: 487.06848pt x 228.85443pt.
+
+Overfull \hbox (46.05075pt too wide) in paragraph at lines 63--64
+ [][] 
+ []
+
+<Resources/resourcesPrzyklad.png, id=89, 484.81125pt x 112.92188pt>
+File: Resources/resourcesPrzyklad.png Graphic file (type png)
+
+<use Resources/resourcesPrzyklad.png>
+Package pdftex.def Info: Resources/resourcesPrzyklad.png used on input line 70.
+
+(pdftex.def)             Requested size: 484.81006pt x 112.92159pt.
+
+Overfull \hbox (43.79233pt too wide) in paragraph at lines 70--71
+ [][] 
+ []
+
+
+Underfull \vbox (badness 1533) has occurred while \output is active []
+
+
+Overfull \vbox (2.49998pt too high) has occurred while \output is active []
+
+
+[14 <./Resources/skladniaTimes.png>]
+Overfull \vbox (2.49998pt too high) has occurred while \output is active []
+
+
+[15 <./Resources/timesPrzyklad.png> <./Resources/resourcesSkladnia.png> <./Reso
+urces/resourcesPrzyklad.png>]
+<Resources/eventsSkladnia.png, id=100, 487.06969pt x 216.05719pt>
+File: Resources/eventsSkladnia.png Graphic file (type png)
+
+<use Resources/eventsSkladnia.png>
+Package pdftex.def Info: Resources/eventsSkladnia.png used on input line 81.
+(pdftex.def)             Requested size: 487.06848pt x 216.05664pt.
+
+Overfull \hbox (46.05075pt too wide) in paragraph at lines 81--82
+ [][] 
+ []
+
+<Resources/eventsPrzyklad.png, id=101, 487.06969pt x 285.31593pt>
+File: Resources/eventsPrzyklad.png Graphic file (type png)
+
+<use Resources/eventsPrzyklad.png>
+Package pdftex.def Info: Resources/eventsPrzyklad.png used on input line 88.
+(pdftex.def)             Requested size: 487.06848pt x 285.31523pt.
+
+Overfull \hbox (46.05075pt too wide) in paragraph at lines 88--89
+ [][] 
+ []
+
+<Resources/ograniczeniaSkladnia.png, id=102, 485.56406pt x 85.82062pt>
+File: Resources/ograniczeniaSkladnia.png Graphic file (type png)
+
+<use Resources/ograniczeniaSkladnia.png>
+Package pdftex.def Info: Resources/ograniczeniaSkladnia.png used on input line 
+99.
+(pdftex.def)             Requested size: 485.56287pt x 85.82039pt.
+
+Overfull \hbox (44.54514pt too wide) in paragraph at lines 99--100
+ [][] 
+ []
+
+
+Overfull \vbox (2.49998pt too high) has occurred while \output is active []
+
+
+[16 <./Resources/eventsSkladnia.png>]
+Overfull \vbox (2.49998pt too high) has occurred while \output is active []
+
+
+[17 <./Resources/eventsPrzyklad.png> <./Resources/ograniczeniaSkladnia.png>]
+<Resources/ograniczeniaPrzyklad.png, id=113, 633.11531pt x 158.84344pt>
+File: Resources/ograniczeniaPrzyklad.png Graphic file (type png)
+
+<use Resources/ograniczeniaPrzyklad.png>
+Package pdftex.def Info: Resources/ograniczeniaPrzyklad.png used on input line 
+122.
+(pdftex.def)             Requested size: 633.11375pt x 158.84305pt.
+
+Overfull \hbox (192.09602pt too wide) in paragraph at lines 122--123
+ [][] 
+ []
+
+) (Rozdzialy/implementacja.tex
+Overfull \vbox (2.49998pt too high) has occurred while \output is active []
+
+
+[18]
+Overfull \vbox (2.49998pt too high) has occurred while \output is active []
+
+
+[19 <./Resources/ograniczeniaPrzyklad.png>]
+Rozdzia\PlPrIeC {\l } 5.
+[20
+
+] <Resources/linqprzyklad.png, id=124, 465.99094pt x 62.48344pt>
+File: Resources/linqprzyklad.png Graphic file (type png)
+
+<use Resources/linqprzyklad.png>
+Package pdftex.def Info: Resources/linqprzyklad.png used on input line 15.
+(pdftex.def)             Requested size: 465.98979pt x 62.48328pt.
+
+Overfull \hbox (24.97206pt too wide) in paragraph at lines 15--16
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (2.49998pt too high) has occurred while \output is active []
+
+
+[21 <./Resources/linqprzyklad.png>]
+Overfull \vbox (2.49998pt too high) has occurred while \output is active []
+
+
+[22]
+Overfull \vbox (2.49998pt too high) has occurred while \output is active []
+
+
+[23]
+Overfull \vbox (2.49998pt too high) has occurred while \output is active []
+
+
+[24]
+Overfull \vbox (2.49998pt too high) has occurred while \output is active []
+
+
+[25]) (Rozdzialy/testowanie.tex
+Overfull \vbox (2.49998pt too high) has occurred while \output is active []
+
+
+[26]
+Rozdzia\PlPrIeC {\l } 6.
+) (Rozdzialy/zakonczenie.tex [27
 
 ]
-Dodatek B.
-) [14
+Rozdzia\PlPrIeC {\l } 7.
+) (thesis.bbl [28
+
+]
+Underfull \hbox (badness 3439) in paragraph at lines 32--34
+[]\OT4/cmr/m/n/12 Strona in-ter-ne-to-wa:  \OT4/cmr/m/it/12 https://docs.micros
+oft.com/en-us/dotnet/csharp/getting-
+ []
+
+) [29
 
 ] (thesis.aux (header.aux)) ) 
 Here is how much of TeX's memory you used:
- 4774 strings out of 493673
- 68732 string characters out of 3141524
- 132055 words of memory out of 3000000
- 7985 multiletter control sequences out of 15000+200000
+ 6186 strings out of 493673
+ 90064 string characters out of 3141524
+ 147574 words of memory out of 3000000
+ 9363 multiletter control sequences out of 15000+200000
  15538 words of font info for 47 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 36i,12n,40p,1445b,280s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,12n,40p,1447b,301s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips
-/pl/plmi.enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/pl/plit.enc}{C:
-/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/pl/plms.enc}{C:/Program Files (
-x86)/MiKTeX 2.9/fonts/enc/dvips/pl/plrm.enc}{C:/Program Files (x86)/MiKTeX 2.9/
+/pl/plmi.enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/pl/plms.enc}{C:
+/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/pl/plrm.enc}{C:/Program Files (
+x86)/MiKTeX 2.9/fonts/enc/dvips/pl/plit.enc}{C:/Program Files (x86)/MiKTeX 2.9/
 fonts/enc/dvips/pl/plsc.enc}<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publ
 ic/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public
 /pl/plbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/pl/plcsc10
 .pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/pl/plmi12.pfb><C:/Pr
-ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/pl/plmi8.pfb><C:/Program Files 
-(x86)/MiKTeX 2.9/fonts/type1/public/pl/plr12.pfb><C:/Program Files (x86)/MiKTeX
- 2.9/fonts/type1/public/pl/plsl12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/
-type1/public/pl/plsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publi
-c/pl/plti12.pfb>
-Output written on thesis.pdf (21 pages, 245958 bytes).
+ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/pl/plr12.pfb><C:/Program Files 
+(x86)/MiKTeX 2.9/fonts/type1/public/pl/plsl12.pfb><C:/Program Files (x86)/MiKTe
+X 2.9/fonts/type1/public/pl/plsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
+/type1/public/pl/plti12.pfb>
+Output written on thesis.pdf (37 pages, 463969 bytes).
 PDF statistics:
- 115 PDF objects out of 1000 (max. 8388607)
+ 188 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 71 words of extra memory for PDF output out of 10000 (max. 10000000)
 

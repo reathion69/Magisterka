@@ -16,4 +16,20 @@ I.H. Osman and J.P. Kelly.
 \newblock {\em Meta-heuristics: An Overview}.
 \newblock Kluwer Academic Publishers, 1996.
 
+\bibitem{XHSTT}
+Strona internetowa:
+\newblock {\em http://www.it.usyd.edu.au/\textasciitilde jeff/cgi-bin/hseval.cgi?op=spec}, czerwiec 2017. 
+
+\bibitem{ograniczenia}
+Strona internetowa:
+\newblock {\em http://www.it.usyd.edu.au/\textasciitilde jeff/cgi-bin/hseval.cgi?op=spec \&part=constraints}, czerwiec 2017. 
+
+\bibitem{Database}
+Strona internetowa:
+\newblock {\em https://www.utwente.nl/ctit/hstt}, czerwiec 2017. 
+
+\bibitem{Csharp}
+Strona internetowa:
+\newblock {\em https://docs.microsoft.com/en-us/dotnet/csharp/getting-started/introduction-to-the-csharp-language-and-the-net-framework}, czerwiec 2017.
+
 \end{thebibliography}
