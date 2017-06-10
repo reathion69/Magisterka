@@ -62,6 +62,7 @@ namespace PlanZajecProsteUI.Code
             Random r = new Random();
             List<Instance> neighborhood = new List<Instance>();
             List<TabuItem> usedItems = new List<TabuItem>();
+            //Neighberhood generation
             for (int i = 0; i < NeighborhoodSize; i++)
             {
                 if (availableList.Count > 0)

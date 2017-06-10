@@ -1,4 +1,4 @@
-\documentclass[twoside,a4paper,12pt]{report} %,draft,openright
+\documentclass[twoside,openright,a4paper,12pt]{report} %,draft,openright
 
 \usepackage{polski}
 \usepackage[utf8]{inputenc} 
@@ -17,12 +17,12 @@
 % for margins left, right top bottom
 \usepackage{anysize}
 \marginsize{3cm}{2.5cm}{2.5cm}{2.5cm}
-\let\origdoublepage\cleardoublepage    %%komenda wstawiająca czyste kartki
-\newcommand{\clearemptydoublepage}{%
-  \clearpage
-  {\pagestyle{empty}\origdoublepage}%
-}
-\let\cleardoublepage\clearemptydoublepage
+%\let\origdoublepage\cleardoublepage    %%komenda wstawiająca czyste kartki
+%\newcommand{\clearemptydoublepage}{%
+%  \clearpage
+%  {\pagestyle{empty}\origdoublepage}%
+%}
+%\let\cleardoublepage\clearemptydoublepage
 \graphicspath{ {Resources/} }
 
 
@@ -38,7 +38,6 @@
 
 
 \begin{document}
-\newpage
 
 %Puts page numbering of preamble in roman and of main body of thesis in
 %arabic. Also defines how chapters and sections are made
@@ -53,7 +52,6 @@
 \include{header}
 
 
-\newpage
 
 %sets up headers for lefthand and righthand pages. To alter, edit
 %these lines and the chaptermark/sectionmark lines above

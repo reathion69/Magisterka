@@ -43,9 +43,9 @@ namespace PlanZajecProsteUI.Code
             List<TabuItem> tabuList = new List<TabuItem>();
             List<TabuItem> availableList = new List<TabuItem>();
             actualInstance = (Instance)instanceToResolve.Clone();
+
             TabuSearch.GenerateStartSolutionForTimes(actualInstance);
             availableList = TabuSearch.GenerateAvaiableMoveList(actualInstance);
-            //bestInstance = instanceToResolve;
             bestRating = EvaluationFunction.EvaluateInstance(actualInstance);
             for (int i = 0; i < iteration; i++)
             {

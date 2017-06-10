@@ -77,9 +77,55 @@ Poprzedni podrozdział miał na celu przybliżyć czytelnikowi pomysł i sposób
 
 \subsection{Opis klas i ważniejszych funkcji}
 
-Solucja aplikacji podzielona została na foldery. Każdy z folderów zawiera klasy odpowiedzialne za inną funkcjonalność aplikacji. Folder \textit{Code} zawiera klasy odpowiedzialne za cały algorytm wyszukiwania.  W folderze \textit{Data} znajdują się klasy służące do parsowania plików wejściowych XML na obiekty, i zapisywania nowo powstałych obiektów do bazy danych. Folder \textit{Model} zawiera klasy odwzorowujące obiekty znajdujące się w bazie danych, znajdą się więc tu klasy takie jak \textit{Instance, Event, Resource}. Ostatni folder \textit{ViewModel} przechowuje klasy odpowiedzialne za przygotowanie danych to zaprezentowania ich w interfejsie graficznym. Poza folderami znajduje się osobne klasa \textit{Form1}, która obsługuje interfejs graficzny użytkownika.
+Solucja aplikacji podzielona została na foldery. Każdy z folderów zawiera klasy odpowiedzialne za inną funkcjonalność aplikacji. Folder \textit{Code} zawiera klasy odpowiedzialne za cały algorytm wyszukiwania.  W folderze \textit{Data} znajdują się klasy służące do parsowania plików wejściowych XML na obiekty, i zapisywania nowo powstałych obiektów do bazy danych. Folder \textit{Model} zawiera klasy odwzorowujące obiekty znajdujące się w bazie danych, znajdą się więc tu klasy takie jak \textit{Instance, Event, Resource}. Ostatni folder \textit{ViewModel} przechowuje klasy odpowiedzialne za przygotowanie danych to zaprezentowania ich w interfejsie graficznym. Poza folderami znajduje się osobna klasa \textit{Form1}, która obsługuje interfejs graficzny użytkownika.
 
-Dalsza część zostanie dostarczona później.
+Poniżej przedstawiono ważniejsze klasy programu razem z opisem funkcji w nich zawartych.
 
+\begin{itemize}
+	\item  \textit{Code/SolutionManager} - klasa ta zawiera szkielet algorytmu Tabu search. Jest to główna klasa algorytmu.  Znajdują się w niej funkcja odpowiedzialna za rozwiązywanie problemu układania planu zajęć dla instancji o podanym Id. Klasa ta udostępnie również funkcje zapisującą raport z pracy algorytmu do pliku txt oraz funkcję wypisującą rozwiązanie na konsolę. Główna funkcja klasy zaprezentowana została na rysunku 5.2.
+	
+	\begin{figure}
+	\centering
+	\includegraphics {ResolveSimpleProblem}
+	\caption{Funkcja \textit{ResolveSimpleProblem} zawierająca szkielet algorytmu Tabu search. }
+	\label{fig: ResolveSimpleProblem}
+	\end{figure}
+
+	\item \textit{Code/TabuSearch} - jest to klasa zawierająca statyczne funkcje służące do rozwiązywania problemu za pomocą algorytmu Tabu search. Znajdują się tu funkcję generujące dostępne ruchy, losowe rozwiązanie startowe, aktualizujące listę Tabu, generujące sąsiedztwo i wybierające z nich najlepszego osobnika. W tej klasie znajdują się najważniejsze fragmenty kodu implementujące algorytm przeszukiwania Tabu. Funkcja generująca sąsiedztwo i wybierająca z niego najlepszą instancje została zaprezentowana na rysunku 5.3.
+
+	\begin{figure}
+	\centering
+	\includegraphics {SelectbestInstance}
+	\caption{Funkcja \textit{SelectBestInstanceFromNeighborhood} generująca sąsiedztwo i wybierająca najlepszego sąsiada. }
+	\label{fig: SelectbestInstance}
+	\end{figure}
+
+	\item \textit{Code/EvaluationFunction} -  w skład tej klasy wchodzą funkcje oceniające bierzące rozwiązanie algorytmu. Znajduje się tu implementacja wszystkich ograniczeń jakie mają być uwzględnione przy rozwiązaniu. Klasę tę można w łatwy sposób rozbudowywać dodając kolejne funkcje oceniające, które odpowiadają kolejnym ograniczeniom.
+	 
+	\item \textit{Code/TabuItem} - klasa reprezentująca pojedyńczy ruch w algorytmie przeszukiwania Tabu. Jako ruch rozumiana jest para dwóch indeksów, pierwszy z nich odpowiada id zdarzenia, a drugi to id okna czasowego, które, w danym ruchu, jest do tego zdarzenia przypisane.  Elementy tej klasy przechowywane są na liście Tabu, dlatego klasa zawiera dodatkową właściwość, jaką jest czas trwania na liście Tabu dla danego elementu.
+	 
+	\item  \textit{Data/XMLLoader} - w tej klasie zawarte są funkcje prasujące dane wejściowe w formacie XHSTT, zapisane w języku XML, na klasy modelu. Znajduje się tu również funkcja zapisująca odczytaną instancje do bazy danych.
+	
+	\item \textit{Form1} - klasa obsługująca interfejs użytkownika. Zawiera funkcję reagującę na każdą wykonaną przez użytkownika czynność oraz funkcje wypisujące dane do odpowiednich obiektów interfejsu.
+\end{itemize}
 
 \section{Specyfikacja zewnętrzna}
+
+	Po uruchomieniu aplikacji użytkownik zobaczy okno przedstawione na rysunku 5.4. Po pierwszym uruchomieniu użytkownik powinien wczytać instancje z pliku wejściowego. Może to wykonać za pomocą przycisku ``Load instance from file,,, który znajduje się w prawym górnym rogu aplikacji. Otworzy się okno dialogowe, gdzie należy wskazać plik XML zawierający dane wejściowe dla problemu rozwiązywania planu zajęć, zapisane w formacie XHSTT, omówiony w poprzednim rozdziale. Po wczytaniu wielu instancji (lub po ponownym uruchomieniu aplikacji), użytkownik może wybrać instancje do rozwiązania. Uczyni to za pomocą rozwijanej listy w lewym górnym rogu.
+	
+	Przycisk ``Resolve,, służy do uruchomienia algorytmu. Przebieg algorytmu jest stale monitorowany, a postępy wyświetlane są na konsoli na dole aplikacji. Po zakończeniu obliczeń, ułożony plan zajęć będzie można oglądać w tabeli. Rozwijana lista nad tabelą służy do wyboru klasy, dla której ma zostać zaprezentowany plan zajęć.
+	
+	Użytkownik może zmieniać parametry wejściowe algorytmu. Algorytm posiada trzy parametry wejściowe, których opis znajduje się poniżej:
+	
+	\begin{itemize}
+		\item Iterations - maksymalna liczba iteracji jaką algorytm wykona w czesie rozwiązywania problemu ukłądania planu zajęć. Jeżeli algorytm osiągnie wynik zero wcześniej, to zakończy swoje działanie.
+		\item Tabu duration - parametr oznaczający długość trwania pojedyńczego ruchu na liście Tabu. Długość rozumiana jest jako liczba iteracji algorytmu.
+		\item Neighborhood - rozmiar sąsiedztwa jakie zostanie losowo wybrane i przeszukane podczas jednej iteracji algorytmu. Rozmiar sąsiedztwa nie powinien być większy od liczby wszystkich dostępnych ruchów algorytmu (pełnego sąsiedztwa).
+	\end{itemize}
+	
+	\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth] {Aplikacja}
+	\caption{Interfejs użytkownika aplikacji.}
+	\label{fig: Aplikacja}
+	\end{figure}
