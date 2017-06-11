@@ -36,5 +36,5 @@
 \contentsline {section}{\numberline {6.2}Zestaw danych testowych}{33}
 \contentsline {section}{\numberline {6.3}Wyniki dzia\IeC {\l }ania aplikacji}{34}
 \contentsline {section}{\numberline {6.4}Znaczenie parametru d\IeC {\l }ugo\IeC {\'s}ci Tabu.}{36}
-\contentsline {chapter}{\numberline {7}Podsumowanie}{37}
-\contentsline {chapter}{\numberline {Bibliografia\hspace {-96pt}}}{39}
+\contentsline {chapter}{\numberline {7}Podsumowanie}{41}
+\contentsline {chapter}{\numberline {Bibliografia\hspace {-96pt}}}{43}

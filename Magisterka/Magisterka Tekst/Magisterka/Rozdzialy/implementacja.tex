@@ -82,7 +82,7 @@ Solucja aplikacji podzielona została na foldery. Każdy z folderów zawiera kla
 Poniżej przedstawiono ważniejsze klasy programu razem z opisem funkcji w nich zawartych.
 
 \begin{itemize}
-	\item  \textit{Code/SolutionManager} - klasa ta zawiera szkielet algorytmu Tabu search. Jest to główna klasa algorytmu.  Znajdują się w niej funkcja odpowiedzialna za rozwiązywanie problemu układania planu zajęć dla instancji o podanym Id. Klasa ta udostępnie również funkcje zapisującą raport z pracy algorytmu do pliku txt oraz funkcję wypisującą rozwiązanie na konsolę. Główna funkcja klasy zaprezentowana została na rysunku 5.2.
+	\item  \textit{Code/SolutionManager} - klasa ta zawiera szkielet algorytmu Tabu search. Jest to główna klasa algorytmu.  Znajdują się w niej funkcja odpowiedzialna za rozwiązywanie problemu układania planu zajęć dla instancji o podanym Id. Klasa ta udostępnia również funkcje zapisującą raport z pracy algorytmu do pliku txt oraz funkcję wypisującą rozwiązanie na konsolę. Główna funkcja klasy zaprezentowana została na rysunku 5.2.
 	
 	\begin{figure}
 	\centering
@@ -100,13 +100,13 @@ Poniżej przedstawiono ważniejsze klasy programu razem z opisem funkcji w nich 
 	\label{fig: SelectbestInstance}
 	\end{figure}
 
-	\item \textit{Code/EvaluationFunction} -  w skład tej klasy wchodzą funkcje oceniające bierzące rozwiązanie algorytmu. Znajduje się tu implementacja wszystkich ograniczeń jakie mają być uwzględnione przy rozwiązaniu. Klasę tę można w łatwy sposób rozbudowywać dodając kolejne funkcje oceniające, które odpowiadają kolejnym ograniczeniom.
+	\item \textit{Code/EvaluationFunction} -  w skład tej klasy wchodzą funkcje oceniające bieżące rozwiązanie algorytmu. Znajduje się tu implementacja wszystkich ograniczeń jakie mają być uwzględnione przy rozwiązaniu. Klasę tę można w łatwy sposób rozbudowywać dodając kolejne funkcje oceniające, które odpowiadają kolejnym ograniczeniom.
 	 
-	\item \textit{Code/TabuItem} - klasa reprezentująca pojedyńczy ruch w algorytmie przeszukiwania Tabu. Jako ruch rozumiana jest para dwóch indeksów, pierwszy z nich odpowiada id zdarzenia, a drugi to id okna czasowego, które, w danym ruchu, jest do tego zdarzenia przypisane.  Elementy tej klasy przechowywane są na liście Tabu, dlatego klasa zawiera dodatkową właściwość, jaką jest czas trwania na liście Tabu dla danego elementu.
+	\item \textit{Code/TabuItem} - klasa reprezentująca pojedynczy ruch w algorytmie przeszukiwania Tabu. Jako ruch rozumiana jest para dwóch indeksów, pierwszy z nich odpowiada id zdarzenia, a drugi to id okna czasowego, które, w danym ruchu, jest do tego zdarzenia przypisane.  Elementy tej klasy przechowywane są na liście Tabu, dlatego klasa zawiera dodatkową właściwość, jaką jest czas trwania na liście Tabu dla danego elementu.
 	 
 	\item  \textit{Data/XMLLoader} - w tej klasie zawarte są funkcje prasujące dane wejściowe w formacie XHSTT, zapisane w języku XML, na klasy modelu. Znajduje się tu również funkcja zapisująca odczytaną instancje do bazy danych.
 	
-	\item \textit{Form1} - klasa obsługująca interfejs użytkownika. Zawiera funkcję reagującę na każdą wykonaną przez użytkownika czynność oraz funkcje wypisujące dane do odpowiednich obiektów interfejsu.
+	\item \textit{Form1} - klasa obsługująca interfejs użytkownika. Zawiera funkcję reagujące na każdą wykonaną przez użytkownika czynność oraz funkcje wypisujące dane do odpowiednich obiektów interfejsu.
 \end{itemize}
 
 \section{Specyfikacja zewnętrzna}
@@ -118,8 +118,8 @@ Poniżej przedstawiono ważniejsze klasy programu razem z opisem funkcji w nich 
 	Użytkownik może zmieniać parametry wejściowe algorytmu. Algorytm posiada trzy parametry wejściowe, których opis znajduje się poniżej:
 	
 	\begin{itemize}
-		\item Iterations - maksymalna liczba iteracji jaką algorytm wykona w czesie rozwiązywania problemu ukłądania planu zajęć. Jeżeli algorytm osiągnie wynik zero wcześniej, to zakończy swoje działanie.
-		\item Tabu duration - parametr oznaczający długość trwania pojedyńczego ruchu na liście Tabu. Długość rozumiana jest jako liczba iteracji algorytmu.
+		\item Iterations - maksymalna liczba iteracji jaką algorytm wykona w czasie rozwiązywania problemu układania planu zajęć. Jeżeli algorytm osiągnie wynik zero wcześniej, to zakończy swoje działanie.
+		\item Tabu duration - parametr oznaczający długość trwania pojedynczego ruchu na liście Tabu. Długość rozumiana jest jako liczba iteracji algorytmu.
 		\item Neighborhood - rozmiar sąsiedztwa jakie zostanie losowo wybrane i przeszukane podczas jednej iteracji algorytmu. Rozmiar sąsiedztwa nie powinien być większy od liczby wszystkich dostępnych ruchów algorytmu (pełnego sąsiedztwa).
 	\end{itemize}
 	
