@@ -1,36 +1,36 @@
-\contentsline {chapter}{\numberline {1}Wprowadzenie}{1}
-\contentsline {chapter}{\numberline {2}Algorytm wyszukiwania z tabu}{5}
-\contentsline {section}{\numberline {2.1}Algorytmy heurystyczne i metaheurystyczne}{5}
-\contentsline {section}{\numberline {2.2}Wyszukiwanie z tabu}{6}
-\contentsline {subsection}{\numberline {2.2.1}Zasada dzia\IeC {\l }ania algorytmu wyszukiwania z tabu}{7}
-\contentsline {subsection}{\numberline {2.2.2}S\IeC {\k a}siedztwo rozwi\IeC {\k a}zania}{7}
-\contentsline {subsection}{\numberline {2.2.3}Kryteria aspiracji}{9}
-\contentsline {subsection}{\numberline {2.2.4}Dywersyfikacji i intensyfikacja}{10}
-\contentsline {chapter}{\numberline {3}Problem uk\IeC {\l }adania planu zaj\IeC {\k e}\IeC {\'c}}{11}
-\contentsline {section}{\numberline {3.1}Sformu\IeC {\l }owanie problemu}{11}
-\contentsline {section}{\numberline {3.2}Rozmiar problemu}{13}
-\contentsline {chapter}{\numberline {4}Format danych wej\IeC {\'s}ciowych}{15}
-\contentsline {section}{\numberline {4.1}Budowa archiwum}{15}
-\contentsline {section}{\numberline {4.2}Instancje}{16}
-\contentsline {section}{\numberline {4.3}Okna czasowe}{17}
-\contentsline {section}{\numberline {4.4}Zasoby}{17}
-\contentsline {section}{\numberline {4.5}Zdarzenia}{19}
-\contentsline {section}{\numberline {4.6}Ograniczenia}{19}
-\contentsline {chapter}{\numberline {5}Implementacja algorytmu}{23}
-\contentsline {section}{\numberline {5.1}Implementacja algorytmu przeszukiwania z tabu}{23}
-\contentsline {subsection}{\numberline {5.1.1}Wprowadzanie danych}{23}
-\contentsline {subsection}{\numberline {5.1.2}Generowanie rozwi\IeC {\k a}zania pocz\IeC {\k a}tkowego}{24}
-\contentsline {subsection}{\numberline {5.1.3}Generowanie dost\IeC {\k e}pnych ruch\IeC {\'o}w algorytmu}{25}
-\contentsline {subsection}{\numberline {5.1.4}Generowanie i ocenianie s\IeC {\k a}siedztwa dla wybranego rozwi\IeC {\k a}zania}{25}
-\contentsline {subsection}{\numberline {5.1.5}Funkcja oceny rozwi\IeC {\k a}zania}{26}
-\contentsline {section}{\numberline {5.2}Specyfikacja wewn\IeC {\k e}trzna programu}{27}
-\contentsline {subsection}{\numberline {5.2.1}U\IeC {\.z}yte narz\IeC {\k e}dzia}{27}
-\contentsline {subsection}{\numberline {5.2.2}Opis klas i wa\IeC {\.z}niejszych funkcji}{29}
-\contentsline {section}{\numberline {5.3}Specyfikacja zewn\IeC {\k e}trzna}{32}
-\contentsline {chapter}{\numberline {6}Testowanie aplikacji}{35}
-\contentsline {section}{\numberline {6.1}\IeC {\'S}rodowisko testowe}{35}
-\contentsline {section}{\numberline {6.2}Zestaw danych testowych}{35}
-\contentsline {section}{\numberline {6.3}Wyniki dzia\IeC {\l }ania aplikacji}{36}
-\contentsline {section}{\numberline {6.4}Wp\IeC {\l }yw czasu trwania tabu na uzyskane wyniki.}{38}
-\contentsline {chapter}{\numberline {7}Podsumowanie}{43}
-\contentsline {chapter}{\numberline {Bibliografia\hspace {-96pt}}}{45}
+\contentsline {chapter}{\numberline {1}Wst\IeC {\k e}p}{1}
+\contentsline {chapter}{\numberline {2}Algorytm wyszukiwania z tabu}{3}
+\contentsline {section}{\numberline {2.1}Algorytmy heurystyczne i metaheurystyczne}{3}
+\contentsline {section}{\numberline {2.2}Wyszukiwanie z tabu}{4}
+\contentsline {subsection}{\numberline {2.2.1}Zasada dzia\IeC {\l }ania algorytmu wyszukiwania z tabu}{5}
+\contentsline {subsection}{\numberline {2.2.2}S\IeC {\k a}siedztwo rozwi\IeC {\k a}zania}{5}
+\contentsline {subsection}{\numberline {2.2.3}Kryteria aspiracji}{7}
+\contentsline {subsection}{\numberline {2.2.4}Dywersyfikacji i intensyfikacja}{8}
+\contentsline {chapter}{\numberline {3}Problem uk\IeC {\l }adania planu zaj\IeC {\k e}\IeC {\'c}}{9}
+\contentsline {section}{\numberline {3.1}Sformu\IeC {\l }owanie problemu}{9}
+\contentsline {section}{\numberline {3.2}Rozmiar problemu}{11}
+\contentsline {chapter}{\numberline {4}Format danych wej\IeC {\'s}ciowych}{13}
+\contentsline {section}{\numberline {4.1}Budowa archiwum}{13}
+\contentsline {section}{\numberline {4.2}Instancje}{14}
+\contentsline {section}{\numberline {4.3}Okna czasowe}{15}
+\contentsline {section}{\numberline {4.4}Zasoby}{15}
+\contentsline {section}{\numberline {4.5}Zdarzenia}{17}
+\contentsline {section}{\numberline {4.6}Ograniczenia}{17}
+\contentsline {chapter}{\numberline {5}Implementacja algorytmu}{21}
+\contentsline {section}{\numberline {5.1}Implementacja}{21}
+\contentsline {subsection}{\numberline {5.1.1}Wprowadzanie danych}{21}
+\contentsline {subsection}{\numberline {5.1.2}Generowanie rozwi\IeC {\k a}zania pocz\IeC {\k a}tkowego}{22}
+\contentsline {subsection}{\numberline {5.1.3}Generowanie dost\IeC {\k e}pnych ruch\IeC {\'o}w algorytmu}{23}
+\contentsline {subsection}{\numberline {5.1.4}Generowanie i ocenianie s\IeC {\k a}siedztwa dla wybranego rozwi\IeC {\k a}zania}{23}
+\contentsline {subsection}{\numberline {5.1.5}Funkcja oceny rozwi\IeC {\k a}zania}{24}
+\contentsline {section}{\numberline {5.2}Specyfikacja wewn\IeC {\k e}trzna programu}{25}
+\contentsline {subsection}{\numberline {5.2.1}U\IeC {\.z}yte narz\IeC {\k e}dzia}{25}
+\contentsline {subsection}{\numberline {5.2.2}Opis klas i wa\IeC {\.z}niejszych funkcji}{27}
+\contentsline {section}{\numberline {5.3}Specyfikacja zewn\IeC {\k e}trzna}{30}
+\contentsline {chapter}{\numberline {6}Testowanie aplikacji}{33}
+\contentsline {section}{\numberline {6.1}\IeC {\'S}rodowisko testowe}{33}
+\contentsline {section}{\numberline {6.2}Zestaw danych testowych}{33}
+\contentsline {section}{\numberline {6.3}Wyniki dzia\IeC {\l }ania aplikacji}{34}
+\contentsline {section}{\numberline {6.4}Wp\IeC {\l }yw czasu trwania tabu na uzyskane wyniki.}{36}
+\contentsline {chapter}{\numberline {7}Podsumowanie}{41}
+\contentsline {chapter}{\numberline {Bibliografia\hspace {-96pt}}}{43}
