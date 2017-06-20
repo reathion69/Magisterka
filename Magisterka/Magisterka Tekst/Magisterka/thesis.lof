@@ -13,19 +13,19 @@
 \contentsline {figure}{\numberline {4.8}{\ignorespaces Sk\IeC {\l }adnia kategorii \textit {Events}.\relax }}{19}
 \contentsline {figure}{\numberline {4.9}{\ignorespaces Przyk\IeC {\l }ad deklaracji zaj\IeC {\k e}\IeC {\'c} z j\IeC {\k e}zyka angielskiego.\relax }}{20}
 \contentsline {figure}{\numberline {4.10}{\ignorespaces Sk\IeC {\l }adnia kategorii \textit {Constraints}.\relax }}{20}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Przyk\IeC {\l }ad ograniczenia: \textit {Assign time constraints}.\relax }}{21}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Przyk\IeC {\l }ad ograniczenia \textit {Assign time constraints}.\relax }}{21}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Przyk\IeC {\l }ad wczytywania instancji za pomoc\IeC {\k a} biblioteki \textit {Xml.Linq}.\relax }}{24}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Przyk\IeC {\l }ad wprowadzania instancji problemu uk\IeC {\l }adania planu zaj\IeC {\k e}\IeC {\'c} za pomoc\IeC {\k a} biblioteki \textit {Xml.Linq}.\relax }}{24}
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Funkcja \textit {ResolveSimpleProblem} zawieraj\IeC {\k a}ca szkielet algorytmu Tabu search. \relax }}{30}
 \contentsline {figure}{\numberline {5.3}{\ignorespaces Funkcja \textit {SelectBestInstanceFromNeighborhood} generuj\IeC {\k a}ca s\IeC {\k a}siedztwo i wybieraj\IeC {\k a}ca najlepszego s\IeC {\k a}siada. \relax }}{31}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Interfejs u\IeC {\.z}ytkownika aplikacji.\relax }}{33}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Okno g\IeC {\l }\IeC {\'o}wne aplikacji.\relax }}{33}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Najlepszy otrzymany plan zaj\IeC {\k e}\IeC {\'c} dla najlepszego rozwi\IeC {\k a}zania.\relax }}{37}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Najgorszy otrzymany plan zaj\IeC {\k e}\IeC {\'c} dla najlepszego rozwi\IeC {\k a}zania (2 okienka).\relax }}{37}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Najlepszy otrzymany plan zaj\IeC {\k e}\IeC {\'c} spo\IeC {\'s}r\IeC {\'o}d plan\IeC {\'o}w dla dziesi\IeC {\k e}ciu klas.\relax }}{37}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Najgorszy otrzymany plan zaj\IeC {\k e}\IeC {\'c} spo\IeC {\'s}r\IeC {\'o}d plan\IeC {\'o}w dla dziesi\IeC {\k e}ciu klas (dwa okienka).\relax }}{37}
 \contentsline {figure}{\numberline {6.3}{\ignorespaces Przebieg pracy algorytmu.\relax }}{38}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Przebieg pracy algorytmu dla parametru d\IeC {\l }ugo\IeC {\'s}ci Tabu - 0.\relax }}{39}
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Przebieg pracy algorytmu dla parametru d\IeC {\l }ugo\IeC {\'s}ci Tabu - 100.\relax }}{40}
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Przebieg pracy algorytmu dla parametru d\IeC {\l }ugo\IeC {\'s}ci Tabu - 300.\relax }}{40}
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Przebieg pracy algorytmu dla parametru d\IeC {\l }ugo\IeC {\'s}ci Tabu - 500.\relax }}{41}
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Przebieg pracy algorytmu dla parametru d\IeC {\l }ugo\IeC {\'s}ci Tabu - 800.\relax }}{41}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Przebieg pracy algorytmu dla czasu trwania tabu = 0.\relax }}{39}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Przebieg pracy algorytmu dla czasu trwania tabu = 100.\relax }}{40}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Przebieg pracy algorytmu dla czasu trwania tabu = 300.\relax }}{40}
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Przebieg pracy algorytmu dla czasu trwania tabu = 500.\relax }}{41}
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Przebieg pracy algorytmu dla czasu trwania tabu = 800.\relax }}{41}
 \addvspace {10\p@ }
