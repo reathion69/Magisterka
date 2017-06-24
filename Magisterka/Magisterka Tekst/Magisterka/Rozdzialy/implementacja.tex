@@ -1,6 +1,6 @@
 \chapter{Implementacja algorytmu}
 
-Problem układania planu zajęć można próbować rozwiązać za pomocą algorytmu przeszukiwania z tabu (ang. \textit{Tabu search}). Jednak implementacjia tego algorytmu jest trudna, z uwagi na dużą złożoność problemu układania planu zajęć. Rozmiar generowanego sąsiedztwa lub stopień złożoności funkcji oceny, to tylko niektóre z nich. Poniżej omówiona została implementacjia algorytmu przeszukiwania z tabu oraz jej specyfikacja wewnętrzna i zewnętrzna.
+Problem układania planu zajęć można próbować rozwiązać za pomocą algorytmu przeszukiwania z tabu (ang. \textit{Tabu search}). Jednak implementacja tego algorytmu jest trudna, z uwagi na dużą złożoność problemów układania planu zajęć. Rozmiar generowanego sąsiedztwa lub stopień złożoności funkcji oceny, to tylko niektóre z nich. Poniżej omówiona została implementacja algorytmu przeszukiwania z tabu oraz jej specyfikacja wewnętrzna i zewnętrzna.
 
 \section{Implementacja}
 
@@ -8,7 +8,7 @@ Implementacja algorytmu została napisana w języku C\#. Język ten został wybr
 
 \subsection{Wprowadzanie danych}
 
-Pierwszym problemem, który stanął przed autorem tej pracy, było wprowadz danych, korzystając z formatu XHSTT. Format ten został omówiony w poprzednim rozdziale. Ponieważ dane zawarte w tym formacie zapisane są w języku XML, skorzystano z biblioteki systemowej  \textit{Xml.Linq}, która pozwala traktować dokument XML jako bazę danych i wysyłać do niej stosowne zapytania. Przykład wprowadzania instancji problemu układania planu zajęć za pomocą tej biblioteki przedstawiony został na rysunku 5.1. Biblioteka \textit{Xml.Linq} stanowiła spore ułatwienie, jednak w dalszym ciągu trudności sprawiał złożony charakter dokumentu, ponieważ każde zagnieżdżenie musiało być wczytane za pomocą odpowiedniego wiersza kodu. 
+Pierwszym problemem, który stanął przed autorem tej pracy, było wprowadź danych, korzystając z formatu XHSTT. Format ten został omówiony w poprzednim rozdziale. Ponieważ dane zawarte w tym formacie zapisane są w języku XML, skorzystano z biblioteki systemowej  \textit{Xml.Linq}, która pozwala traktować dokument XML jako bazę danych i wysyłać do niej stosowne zapytania. Przykład wprowadzania instancji problemu układania planu zajęć za pomocą tej biblioteki przedstawiony został na rysunku 5.1. Biblioteka \textit{Xml.Linq} stanowiła spore ułatwienie, jednak w dalszym ciągu trudności sprawiał złożony charakter dokumentu, ponieważ każde zagnieżdżenie musiało być wczytane za pomocą odpowiedniego wiersza kodu. 
 
 \begin{figure}
 	\centering
@@ -29,7 +29,7 @@ By ułatwić generowanie sąsiedztwa niezbędnego w dalszym działaniu algorytmu
 
 \subsection{Generowanie i ocenianie sąsiedztwa dla wybranego rozwiązania}
 
-W ramach jednej iteracji, algorytm powinien wygenerować sąsiedztwo dla bierzącego rozwiązania, ocenić każdego sąsiada i wybrać najlepszego z nich. Ponieważ obliczenie funkcji oceny rozwiązania jest bardzo kosztowne, konieczne było ograniczenie rozmiaru przeszukiwanego sąsiedztwa. Rozmiar ten jest jednym z parametrów algorytmu. Po raz kolejny zdecydowano się wprowadzić element probabilistyczny. Z puli dostępnych ruchów wybierane są ruchy w sposób losowy. Każdy z wylosowanych ruchów wykonywany jest dla aktualnego rozwiązania, tworząc nowe rozwiązanie, wchodzące w skład sąsiedztwa rozwiązania aktualnego. Tak wygenerowane sąsiedztwo jest oceniane i wybierane jest rozwiązanie najlepsze spośród dostępnych rozwiązań. Ruch, który doprowadził nas do rozwiązania najlepszego trafia na listę tabu. Następnie wybrane rozwiązanie porównywane jest z rozwiązaniem globalnie najlepszym, jakie do tej pory udało się znaleźć. Jeżeli nowe rozwiązanie jest lepsze, to staje się rozwiązaniem najlepszym globalnie. Ostatnim krokiem w ramach jednej iteracji algorytmu jest aktualizowanie listy Tabu. Dla każdego elementu aktualizowany jest czas jego trwania na liście tabu. Jeżeli jest on równy zeru, to ruch trafia z powrotem do zbioru dostępnych ruchów algorytmu.
+W ramach jednej iteracji, algorytm powinien wygenerować sąsiedztwo dla bieżącego rozwiązania, ocenić każdego sąsiada i wybrać najlepszego z nich. Ponieważ obliczenie funkcji oceny rozwiązania jest bardzo kosztowne, konieczne było ograniczenie rozmiaru przeszukiwanego sąsiedztwa. Rozmiar ten jest jednym z parametrów algorytmu. Po raz kolejny zdecydowano się wprowadzić element probabilistyczny. Z puli dostępnych ruchów wybierane są ruchy w sposób losowy. Każdy z wylosowanych ruchów wykonywany jest dla aktualnego rozwiązania, tworząc nowe rozwiązanie, wchodzące w skład sąsiedztwa rozwiązania aktualnego. Tak wygenerowane sąsiedztwo jest oceniane i wybierane jest rozwiązanie najlepsze spośród dostępnych rozwiązań. Ruch, który doprowadził nas do rozwiązania najlepszego trafia na listę tabu. Następnie wybrane rozwiązanie porównywane jest z rozwiązaniem globalnie najlepszym, jakie do tej pory udało się znaleźć. Jeżeli nowe rozwiązanie jest lepsze, to staje się rozwiązaniem najlepszym globalnie. Ostatnim krokiem w ramach jednej iteracji algorytmu jest aktualizowanie listy Tabu. Dla każdego elementu aktualizowany jest czas jego trwania na liście tabu. Jeżeli jest on równy zeru, to ruch trafia z powrotem do zbioru dostępnych ruchów algorytmu.
 
 \subsection{Funkcja oceny rozwiązania}
 
@@ -89,7 +89,7 @@ Poniżej przedstawiono ważniejsze klasy programu wraz z opisem funkcji w nich z
 	\label{fig: ResolveSimpleProblem}
 	\end{figure}
 
-	\item \textit{Code/TabuSearch} - klasa zawieraja statyczne funkcje służące do rozwiązywania problemu za pomocą algorytmu przeszukiwania z tabu. Znajdują się tu funkcję generujące dostępne ruchy, losowe rozwiązanie startowe, aktualizujące listę tabu, generujące sąsiedztwo i wybierające z nich najlepszego osobnika. W tej klasie znajdują się najważniejsze fragmenty kodu implementujące algorytm przeszukiwania z tabu. Funkcja generująca sąsiedztwo i wybierająca z niego najlepszą instancje została zaprezentowana na rysunku 5.3.
+	\item \textit{Code/TabuSearch} - klasa zawiera statyczne funkcje służące do rozwiązywania problemu za pomocą algorytmu przeszukiwania z tabu. Znajdują się tu funkcję generujące dostępne ruchy, losowe rozwiązanie startowe, aktualizujące listę tabu, generujące sąsiedztwo i wybierające z nich najlepszego osobnika. W tej klasie znajdują się najważniejsze fragmenty kodu implementujące algorytm przeszukiwania z tabu. Funkcja generująca sąsiedztwo i wybierająca z niego najlepszą instancje została zaprezentowana na rysunku 5.3.
 
 	\begin{figure}
 	\centering

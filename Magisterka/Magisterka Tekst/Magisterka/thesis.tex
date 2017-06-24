@@ -42,7 +42,8 @@
 %Puts page numbering of preamble in roman and of main body of thesis in
 %arabic. Also defines how chapters and sections are made
 \pagenumbering{arabic}
-\setcounter{page}{1} \pagestyle{fancy}
+%\setcounter{page}{1} 
+\pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{\markboth{\chaptername%
 \ \thechapter:\,\ #1}{}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection\,\ #1}}
@@ -58,7 +59,7 @@
 %\addtolength{\headheight}{3pt} \fancyhead{}
 %\fancyhead[LE]{\sl\leftmark} \fancyhead[LO,RE]{\rm\thepage}
 %\fancyhead[RO]{\sl\rightmark} \fancyfoot[C,L,E]{}
-\pagenumbering{arabic}
+%\pagenumbering{arabic}
 \fancyhead[LE,RO]{\slshape \rightmark}
 \fancyhead[LO,RE]{\slshape \leftmark}
 \fancyfoot[C]{\thepage}

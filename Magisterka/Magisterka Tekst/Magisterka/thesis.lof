@@ -1,31 +1,33 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Pseudokod algorytmu Tabu search\relax }}{6}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Proces przeszukiwania z tabu\relax }}{14}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Pseudokod algorytmu Tabu search\relax }}{15}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Ilustracja problemu uk\IeC {\l }adania planu zaj\IeC {\k e}\IeC {\'c}\relax }}{20}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Szablon dokumentu w archiwum XHSTT.\relax }}{13}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Przyk\IeC {\l }ad archiwum w j\IeC {\k e}zyku XML.\relax }}{14}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Szablon pojedynczej instancji.\relax }}{14}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Sk\IeC {\l }adnia kategorii \textit {Times}.\relax }}{15}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Przyk\IeC {\l }ad deklaracji czwartego okna czasowego w poniedzia\IeC {\l }ek.\relax }}{16}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Sk\IeC {\l }adnia kategorii \textit {Resources}.\relax }}{16}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Przyk\IeC {\l }ad deklaracji zasobu w postaci sali komputerowej.\relax }}{16}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Sk\IeC {\l }adnia kategorii \textit {Events}.\relax }}{17}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Przyk\IeC {\l }ad deklaracji zaj\IeC {\k e}\IeC {\'c} z j\IeC {\k e}zyka angielskiego.\relax }}{18}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Sk\IeC {\l }adnia kategorii \textit {Constraints}.\relax }}{18}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Przyk\IeC {\l }ad ograniczenia \textit {Assign time constraints}.\relax }}{19}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Szablon dokumentu w archiwum XHSTT.\relax }}{25}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Przyk\IeC {\l }ad archiwum w j\IeC {\k e}zyku XML.\relax }}{26}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Szablon pojedynczej instancji.\relax }}{26}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Sk\IeC {\l }adnia kategorii \textit {Times}.\relax }}{27}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Przyk\IeC {\l }ad deklaracji czwartego okna czasowego w poniedzia\IeC {\l }ek.\relax }}{28}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Sk\IeC {\l }adnia kategorii \textit {Resources}.\relax }}{28}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Przyk\IeC {\l }ad deklaracji zasobu w postaci sali komputerowej.\relax }}{28}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Sk\IeC {\l }adnia kategorii \textit {Events}.\relax }}{29}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Przyk\IeC {\l }ad deklaracji zaj\IeC {\k e}\IeC {\'c} z j\IeC {\k e}zyka angielskiego.\relax }}{30}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Sk\IeC {\l }adnia kategorii \textit {Constraints}.\relax }}{30}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Przyk\IeC {\l }ad ograniczenia \textit {Assign time constraints}.\relax }}{31}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Przyk\IeC {\l }ad wprowadzania instancji problemu uk\IeC {\l }adania planu zaj\IeC {\k e}\IeC {\'c} za pomoc\IeC {\k a} biblioteki \textit {Xml.Linq}.\relax }}{22}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Funkcja \textit {ResolveSimpleProblem} zawieraj\IeC {\k a}ca szkielet algorytmu Tabu search. \relax }}{28}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Funkcja \textit {SelectBestInstanceFromNeighborhood} generuj\IeC {\k a}ca s\IeC {\k a}siedztwo i wybieraj\IeC {\k a}ca najlepszego s\IeC {\k a}siada. \relax }}{29}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Okno g\IeC {\l }\IeC {\'o}wne aplikacji.\relax }}{31}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Przyk\IeC {\l }ad wprowadzania instancji problemu uk\IeC {\l }adania planu zaj\IeC {\k e}\IeC {\'c} za pomoc\IeC {\k a} biblioteki \textit {Xml.Linq}.\relax }}{34}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Funkcja \textit {ResolveSimpleProblem} zawieraj\IeC {\k a}ca szkielet algorytmu Tabu search. \relax }}{40}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Funkcja \textit {SelectBestInstanceFromNeighborhood} generuj\IeC {\k a}ca s\IeC {\k a}siedztwo i wybieraj\IeC {\k a}ca najlepszego s\IeC {\k a}siada. \relax }}{41}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Okno g\IeC {\l }\IeC {\'o}wne aplikacji.\relax }}{43}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Najlepszy otrzymany plan zaj\IeC {\k e}\IeC {\'c} spo\IeC {\'s}r\IeC {\'o}d plan\IeC {\'o}w dla dziesi\IeC {\k e}ciu klas.\relax }}{35}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Najgorszy otrzymany plan zaj\IeC {\k e}\IeC {\'c} spo\IeC {\'s}r\IeC {\'o}d plan\IeC {\'o}w dla dziesi\IeC {\k e}ciu klas (dwa okienka).\relax }}{35}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Przebieg pracy algorytmu.\relax }}{36}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Przebieg pracy algorytmu dla czasu trwania tabu = 0.\relax }}{37}
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Przebieg pracy algorytmu dla czasu trwania tabu = 100.\relax }}{38}
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Przebieg pracy algorytmu dla czasu trwania tabu = 300.\relax }}{38}
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Przebieg pracy algorytmu dla czasu trwania tabu = 500.\relax }}{39}
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Przebieg pracy algorytmu dla czasu trwania tabu = 800.\relax }}{39}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Najlepszy otrzymany plan zaj\IeC {\k e}\IeC {\'c} spo\IeC {\'s}r\IeC {\'o}d plan\IeC {\'o}w dla dziesi\IeC {\k e}ciu klas.\relax }}{47}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Najgorszy otrzymany plan zaj\IeC {\k e}\IeC {\'c} spo\IeC {\'s}r\IeC {\'o}d plan\IeC {\'o}w dla dziesi\IeC {\k e}ciu klas (dwa okienka).\relax }}{47}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Przebieg pracy algorytmu.\relax }}{48}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Przebieg pracy algorytmu dla czasu trwania tabu = 0.\relax }}{49}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Przebieg pracy algorytmu dla czasu trwania tabu = 100.\relax }}{50}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Przebieg pracy algorytmu dla czasu trwania tabu = 300.\relax }}{50}
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Przebieg pracy algorytmu dla czasu trwania tabu = 500.\relax }}{51}
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Przebieg pracy algorytmu dla czasu trwania tabu = 800.\relax }}{51}
 \addvspace {10\p@ }
