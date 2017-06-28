@@ -57,46 +57,45 @@ namespace PlanZajecProsteUI.Code
 
         static int CheckWidnowsExistForClass(Instance instance)
         {
-            List<Resource> Classes = instance.Resources.Where(x => x.Type.Name.Contains("Class")).ToList();
-            List<TimeGroup> days = instance.TimeGroups.Where(x => x.Type == TimeGroupsType.Day).ToList();
+            List<Resource> Classes 
+                = instance.Resources.Where(x => x.Type.Name.Contains("Class")).ToList();
+            List<TimeGroup> days 
+                = instance.TimeGroups.Where(x => x.Type == TimeGroupsType.Day).ToList();
             int rating = 0;
 
             foreach (var classObj in Classes)
             {
                 foreach (var day in days)
                 {
-                    List<Time> times = instance.Times.Where(x => x.TimeGroups.Any(y => y == day)).ToList();
-                    bool start = false;
-                    bool end = false;
-                    int size = 0;
+                    List<Time> times 
+                        = instance.Times.Where(x => x.TimeGroups.Any(y => y == day)).ToList();
+                    bool start = false;  bool end = false;  int size = 0;
                     int durationIterator = 0;
                     foreach (var time in times)
                     {
                         if (durationIterator <= 0)
                         {
-                            Event ev = instance.Events.Where(x => x.Time == time && x.EventResources.Any(y => y.Resource == classObj)).FirstOrDefault();
+                            Event ev 
+                                = instance.Events.Where(x => x.Time == time && x.EventResources
+                                            .Any(y => y.Resource == classObj)).FirstOrDefault();
                             if (ev != null)
                             {
                                 durationIterator = ev.Duration;
                                 start = true;
                                 if (end)
                                 {
-                                    end = false;
                                     rating += size * isWindowPenalthy;
-                                    size = 0;
+                                    size = 0;  end = false;
                                 }
                             }
                             else
                             {
                                 if (start)
                                 {
-                                    end = true;
-                                    size++;
+                                    end = true;  size++;
                                 }
                             }
-
                         }
-
                         durationIterator--;
                     }
                 }
@@ -114,21 +113,34 @@ namespace PlanZajecProsteUI.Code
             {
                 List<Event> eventsOnTime = instance.Events.Where(x => x.Time == time).ToList();
 
-                // Implementacja eventów o długości dłuższej niż 1 (maksymalna długość zaimplementowana to 3) 
+                // Implementacja eventów o długości dłuższej niż 1 
                 // ***********************************************
                 List<Event> eventsToAddOnDuration2 = null;
                 List<Event> eventsToAddOnDuration3 = null;
 
                 if (timeForDuration2 != null)
-                    eventsToAddOnDuration2 = (instance.Events.Where(x => x.Time == timeForDuration2 && (x.Duration == 2 || x.Duration == 3)).ToList());
+                    eventsToAddOnDuration2 = 
+                        (instance.Events.Where
+                        (x => x.Time == timeForDuration2 && 
+                        (x.Duration == 2 || x.Duration == 3)).ToList());
                 if (timeForDuration3 != null)
-                    eventsToAddOnDuration3 = (instance.Events.Where(x => x.Time == timeForDuration3 && x.Duration == 3).ToList());
+                    eventsToAddOnDuration3 = 
+                        (instance.Events.Where
+                        (x => x.Time == timeForDuration3 && x.Duration == 3).ToList());
 
 
-                if (timeForDuration2 != null && eventsToAddOnDuration2.Any() && time.TimeGroups.Where(x => x.Type == TimeGroupsType.Day).FirstOrDefault() != timeForDuration2.TimeGroups.Where(x => x.Type == TimeGroupsType.Day).FirstOrDefault())
+                if (timeForDuration2 != null && eventsToAddOnDuration2.Any() && 
+                    time.TimeGroups.Where(x => x.Type == TimeGroupsType.Day).
+                    FirstOrDefault() != timeForDuration2.TimeGroups.Where
+                    (x => x.Type == TimeGroupsType.Day).FirstOrDefault())
+
                     rating += eventsToAddOnDuration2.Count * eventIsSplitPenalthy;
 
-                if (timeForDuration3 != null && eventsToAddOnDuration3.Any() && time.TimeGroups.Where(x => x.Type == TimeGroupsType.Day).FirstOrDefault() != timeForDuration3.TimeGroups.Where(x => x.Type == TimeGroupsType.Day).FirstOrDefault())
+                if (timeForDuration3 != null && eventsToAddOnDuration3.Any() && 
+                    time.TimeGroups.Where(x => x.Type == TimeGroupsType.Day).
+                    FirstOrDefault() != timeForDuration3.TimeGroups.Where
+                    (x => x.Type == TimeGroupsType.Day).FirstOrDefault())
+
                     rating += eventsToAddOnDuration3.Count * eventIsSplitPenalthy;
                 if (eventsToAddOnDuration2 != null)
                     eventsOnTime.AddRange(eventsToAddOnDuration2);
@@ -142,7 +154,9 @@ namespace PlanZajecProsteUI.Code
                     {
                         if (res.Resource != null)
                         {
-                            var resList = eventsOnTime.Where(x => x.EventResources.Where(y => y.Resource == res.Resource).Any()).ToList();
+                            var resList = eventsOnTime.Where
+                                (x => x.EventResources.Where
+                                (y => y.Resource == res.Resource).Any()).ToList();
                             if (resList.Count > 1)
                                 rating += (resList.Count - 1) * resourceConflictPenalthy;
                         }

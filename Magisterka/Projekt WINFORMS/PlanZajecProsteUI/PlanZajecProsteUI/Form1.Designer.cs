@@ -35,6 +35,13 @@
             this.LoadToDatabaseButton = new System.Windows.Forms.Button();
             this.ConsoleRichTextBox = new System.Windows.Forms.RichTextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.godzinaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.poniedziałekDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wtorekDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.środaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.czwartekDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.piątekDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.planViewModelBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.ClassComboBox = new System.Windows.Forms.ComboBox();
             this.ClassSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
@@ -43,18 +50,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.NeighborhoodSizeTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.godzinaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.poniedziałekDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wtorekDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.środaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.czwartekDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.piątekDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.planViewModelBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.planViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.InstancesSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ClassSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.planViewModelBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClassSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.planViewModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,7 +91,7 @@
             // 
             this.ConsoleRichTextBox.Location = new System.Drawing.Point(12, 418);
             this.ConsoleRichTextBox.Name = "ConsoleRichTextBox";
-            this.ConsoleRichTextBox.Size = new System.Drawing.Size(645, 96);
+            this.ConsoleRichTextBox.Size = new System.Drawing.Size(645, 293);
             this.ConsoleRichTextBox.TabIndex = 4;
             this.ConsoleRichTextBox.Text = "";
             this.ConsoleRichTextBox.TextChanged += new System.EventHandler(this.ConsoleRichTextBox_TextChanged);
@@ -112,6 +112,46 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(645, 317);
             this.dataGridView1.TabIndex = 6;
+            // 
+            // godzinaDataGridViewTextBoxColumn
+            // 
+            this.godzinaDataGridViewTextBoxColumn.DataPropertyName = "Godzina";
+            this.godzinaDataGridViewTextBoxColumn.HeaderText = "Godzina";
+            this.godzinaDataGridViewTextBoxColumn.Name = "godzinaDataGridViewTextBoxColumn";
+            // 
+            // poniedziałekDataGridViewTextBoxColumn
+            // 
+            this.poniedziałekDataGridViewTextBoxColumn.DataPropertyName = "Poniedziałek";
+            this.poniedziałekDataGridViewTextBoxColumn.HeaderText = "Poniedziałek";
+            this.poniedziałekDataGridViewTextBoxColumn.Name = "poniedziałekDataGridViewTextBoxColumn";
+            // 
+            // wtorekDataGridViewTextBoxColumn
+            // 
+            this.wtorekDataGridViewTextBoxColumn.DataPropertyName = "Wtorek";
+            this.wtorekDataGridViewTextBoxColumn.HeaderText = "Wtorek";
+            this.wtorekDataGridViewTextBoxColumn.Name = "wtorekDataGridViewTextBoxColumn";
+            // 
+            // środaDataGridViewTextBoxColumn
+            // 
+            this.środaDataGridViewTextBoxColumn.DataPropertyName = "Środa";
+            this.środaDataGridViewTextBoxColumn.HeaderText = "Środa";
+            this.środaDataGridViewTextBoxColumn.Name = "środaDataGridViewTextBoxColumn";
+            // 
+            // czwartekDataGridViewTextBoxColumn
+            // 
+            this.czwartekDataGridViewTextBoxColumn.DataPropertyName = "Czwartek";
+            this.czwartekDataGridViewTextBoxColumn.HeaderText = "Czwartek";
+            this.czwartekDataGridViewTextBoxColumn.Name = "czwartekDataGridViewTextBoxColumn";
+            // 
+            // piątekDataGridViewTextBoxColumn
+            // 
+            this.piątekDataGridViewTextBoxColumn.DataPropertyName = "Piątek";
+            this.piątekDataGridViewTextBoxColumn.HeaderText = "Piątek";
+            this.piątekDataGridViewTextBoxColumn.Name = "piątekDataGridViewTextBoxColumn";
+            // 
+            // planViewModelBindingSource1
+            // 
+            this.planViewModelBindingSource1.DataSource = typeof(PlanZajecProsteUI.ViewModels.PlanViewModel);
             // 
             // ClassComboBox
             // 
@@ -173,46 +213,6 @@
             this.label3.TabIndex = 13;
             this.label3.Text = "Neighborhood";
             // 
-            // godzinaDataGridViewTextBoxColumn
-            // 
-            this.godzinaDataGridViewTextBoxColumn.DataPropertyName = "Godzina";
-            this.godzinaDataGridViewTextBoxColumn.HeaderText = "Godzina";
-            this.godzinaDataGridViewTextBoxColumn.Name = "godzinaDataGridViewTextBoxColumn";
-            // 
-            // poniedziałekDataGridViewTextBoxColumn
-            // 
-            this.poniedziałekDataGridViewTextBoxColumn.DataPropertyName = "Poniedziałek";
-            this.poniedziałekDataGridViewTextBoxColumn.HeaderText = "Poniedziałek";
-            this.poniedziałekDataGridViewTextBoxColumn.Name = "poniedziałekDataGridViewTextBoxColumn";
-            // 
-            // wtorekDataGridViewTextBoxColumn
-            // 
-            this.wtorekDataGridViewTextBoxColumn.DataPropertyName = "Wtorek";
-            this.wtorekDataGridViewTextBoxColumn.HeaderText = "Wtorek";
-            this.wtorekDataGridViewTextBoxColumn.Name = "wtorekDataGridViewTextBoxColumn";
-            // 
-            // środaDataGridViewTextBoxColumn
-            // 
-            this.środaDataGridViewTextBoxColumn.DataPropertyName = "Środa";
-            this.środaDataGridViewTextBoxColumn.HeaderText = "Środa";
-            this.środaDataGridViewTextBoxColumn.Name = "środaDataGridViewTextBoxColumn";
-            // 
-            // czwartekDataGridViewTextBoxColumn
-            // 
-            this.czwartekDataGridViewTextBoxColumn.DataPropertyName = "Czwartek";
-            this.czwartekDataGridViewTextBoxColumn.HeaderText = "Czwartek";
-            this.czwartekDataGridViewTextBoxColumn.Name = "czwartekDataGridViewTextBoxColumn";
-            // 
-            // piątekDataGridViewTextBoxColumn
-            // 
-            this.piątekDataGridViewTextBoxColumn.DataPropertyName = "Piątek";
-            this.piątekDataGridViewTextBoxColumn.HeaderText = "Piątek";
-            this.piątekDataGridViewTextBoxColumn.Name = "piątekDataGridViewTextBoxColumn";
-            // 
-            // planViewModelBindingSource1
-            // 
-            this.planViewModelBindingSource1.DataSource = typeof(PlanZajecProsteUI.ViewModels.PlanViewModel);
-            // 
             // planViewModelBindingSource
             // 
             this.planViewModelBindingSource.DataSource = typeof(PlanZajecProsteUI.ViewModels.PlanViewModel);
@@ -221,7 +221,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(666, 526);
+            this.ClientSize = new System.Drawing.Size(666, 723);
             this.Controls.Add(this.NeighborhoodSizeTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.TabuDurationTextBox);
@@ -238,8 +238,8 @@
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.InstancesSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ClassSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.planViewModelBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClassSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.planViewModelBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

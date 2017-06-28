@@ -59,6 +59,7 @@
     <Compile Include="Code\SolutionManager.cs" />
     <Compile Include="Code\TabuItem.cs" />
     <Compile Include="Code\TabuSearch.cs" />
+    <Compile Include="Code\temp.cs" />
     <Compile Include="Data\XMLLoader.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
