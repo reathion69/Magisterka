@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.5)  28 JUN 2017 16:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.5)  30 JUN 2017 19:40
 entering extended mode
 **thesis.tex
 (thesis.tex
@@ -1090,7 +1090,7 @@ Here is how much of TeX's memory you used:
  9400 multiletter control sequences out of 15000+200000
  14989 words of font info for 46 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 36i,6n,39p,2057b,363s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,6n,39p,2170b,363s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/
 dvips/pl/plmi.enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/pl/plms.en
 c}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/pl/plit.enc}{C:/Program Fi
@@ -1102,7 +1102,7 @@ csc10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/pl/plmi12.pfb><
 C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/pl/plr12.pfb><C:/Program F
 iles (x86)/MiKTeX 2.9/fonts/type1/public/pl/plsy10.pfb><C:/Program Files (x86)/
 MiKTeX 2.9/fonts/type1/public/pl/plti12.pfb>
-Output written on thesis.pdf (71 pages, 1292780 bytes).
+Output written on thesis.pdf (71 pages, 1305087 bytes).
 PDF statistics:
  343 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -1,6 +1,6 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Proces wyszukiwania z tabu\relax }}{16}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Ilustracja procesu wyszukiwania z tabu\relax }}{16}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Pseudokod algorytmu wyszukiwania z tabu\relax }}{17}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Ilustracja problemu uk\IeC {\l }adania planu zaj\IeC {\k e}\IeC {\'c}\relax }}{22}
@@ -17,7 +17,7 @@
 \contentsline {figure}{\numberline {4.10}{\ignorespaces Sk\IeC {\l }adnia kategorii \textit {Constraints}.\relax }}{33}
 \contentsline {figure}{\numberline {4.11}{\ignorespaces Przyk\IeC {\l }ad ograniczenia \textit {Assign time constraints}.\relax }}{34}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Schemat algorytmu wyszukiwania tabu do rozwi\IeC {\k a}zywania problemu uk\IeC {\l }adania planu zaj\IeC {\k e}\IeC {\'c}.\relax }}{36}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Schemat dzia\IeC {\l }ania algorytmu wyszukiwania z tabu do rozwi\IeC {\k a}zywania problemu uk\IeC {\l }adania planu zaj\IeC {\k e}\IeC {\'c}.\relax }}{36}
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Przyk\IeC {\l }ad generacji s\IeC {\k a}siedztwa: a) bie\IeC {\.z}\IeC {\k a}ce rozwi\IeC {\k a}zanie, b) i c) przyk\IeC {\l }adowe s\IeC {\k a}siedztwo rozwi\IeC {\k a}zania bie\IeC {\.z}\IeC {\k a}cego.\relax }}{38}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {6.1}{\ignorespaces Przyk\IeC {\l }ad wprowadzania instancji problemu uk\IeC {\l }adania planu zaj\IeC {\k e}\IeC {\'c} za pomoc\IeC {\k a} biblioteki \textit {Xml.Linq}.\relax }}{43}
